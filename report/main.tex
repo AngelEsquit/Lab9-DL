@@ -47,10 +47,51 @@ solo con validación; la prueba se evalúa una vez por modelo. (4) \emph{Covaria
 $[t,t+H-1]$ y solo el calendario determinista se usa a futuro (verificado con \texttt{assert} sobre una ventana).
 
 \section{Investigación de herramientas}
-\todo{resumen breve de: LSTM/GRU (parámetros y formas de output, h\_n, c\_n); Conv1d dilatada y campo receptivo
-$1+(k-1)\sum_i d_i$; TransformerEncoderLayer y codificación posicional; NeuralForecast/StatsForecast
-(unique\_id, ds, y; cross\_validation: n\_windows, step\_size, refit); Chronos predict\_quantiles;
-local vs global, teacher forcing, RevIN, pinball loss, MASE vs WAPE}
+\begingroup\small\sloppy
+\textbf{Herramientas de PyTorch.}
+\begin{itemize}
+\item \texttt{nn.LSTM / nn.GRU}: \texttt{input\_size} (features por paso), \texttt{hidden\_size}, \texttt{num\_layers},
+\texttt{batch\_first} (si es \texttt{True} la entrada es $(B,L,F)$) y \texttt{dropout} (entre capas, no tras la última;
+solo actúa si \texttt{num\_layers}$>1$). Salidas: \texttt{output} $(B,L,D\cdot h)$ con el estado oculto de la última capa en
+cada paso; \texttt{h\_n} $(D\cdot\text{capas},B,h)$ con el último estado de cada capa; \texttt{c\_n}, de igual forma, solo en
+la LSTM (celda de memoria; la GRU no la tiene). $D=2$ si es bidireccional.
+\item \texttt{nn.Conv1d} con \texttt{dilation}: se hace causal rellenando $(k-1)d$ ceros \emph{solo a la izquierda}
+(\texttt{F.pad}) y usando \texttt{padding=0}, de modo que la salida en $t$ no ve $t+1$. El campo receptivo de una TCN es
+$RF=1+\sum_{i}(k-1)\,d_i$ (se duplica el término si cada bloque residual usa dos convoluciones). Con $d_i=2^i$ y $k=3$
+(una conv por nivel), $RF=1+2(2^n-1)$: hacen falta $n=7$ niveles ($RF=255$) para cubrir $L=168$; con $n=6$ solo se ven 127 h.
+\item \texttt{nn.TransformerEncoderLayer}: \texttt{d\_model} (dimensión de embedding), \texttt{nhead} (cabezas; \texttt{d\_model}
+debe ser divisible por \texttt{nhead}), \texttt{dim\_feedforward} (capa oculta de la MLP interna, 2048 por defecto), además de
+\texttt{dropout}, \texttt{batch\_first} y \texttt{norm\_first}. La atención no tiene noción de orden, por lo que se \emph{suma}
+al embedding de entrada una codificación posicional (seno/coseno fija, $PE_{(p,2i)}=\sin(p/10^{4\cdot 2i/d})$, o aprendida con
+\texttt{nn.Embedding}); PatchTST, además, agrupa la serie en parches antes de la atención. Para pronóstico autorregresivo se pasa una
+máscara causal.
+\end{itemize}
+\textbf{Librerías de forecasting.}
+\begin{itemize}
+\item \textbf{StatsForecast / NeuralForecast} (Nixtla): entrada en formato largo con columnas \texttt{unique\_id}, \texttt{ds}, \texttt{y}
+(más columnas exógenas). \texttt{cross\_validation} hace backtesting de origen móvil: \texttt{n\_windows} = número de
+orígenes (cutoffs), \texttt{step\_size} = horas entre un origen y el siguiente (24 en este lab) y \texttt{refit}: si es
+\texttt{True} reajusta el modelo en cada ventana; si es \texttt{False} entrena una sola vez y reutiliza los pesos (en NeuralForecast
+admite también un entero, para reentrenar cada $k$ ventanas). Devuelve \texttt{cutoff}, \texttt{y} y una columna por modelo.
+\item \textbf{Chronos}: \texttt{BaseChronosPipeline.from\_pretrained} (modelos \texttt{chronos-bolt}); \texttt{predict\_quantiles(context,
+prediction\_length, quantile\_levels)} recibe el contexto (tensor 1D/2D o lista de tensores de distinta longitud), el horizonte y los
+cuantiles; devuelve \texttt{(quantiles, mean)} con \texttt{quantiles} de forma $(B,H,|q|)$. Es zero-shot: no se entrena.
+\end{itemize}
+\textbf{Conceptos.}
+\begin{itemize}
+\item \emph{Local vs global}: local = un modelo por serie (se adapta a cada una, pero con pocos datos y costo $\propto N$);
+global = un modelo para todas (comparte patrones y generaliza mejor, requiere normalizar o identificar la serie).
+\item \emph{Teacher forcing}: en entrenamiento el decoder recibe el valor \emph{real} del paso anterior en vez de su propia
+predicción, lo que acelera la convergencia pero crea \emph{exposure bias}: en inferencia usa sus predicciones y los errores se acumulan.
+\item \emph{RevIN}: normaliza cada ventana con su media y desviación (con parámetros afín aprendibles) antes del modelo y
+revierte la normalización a la salida; ayuda ante cambios de nivel (drift) porque la red ve siempre series de escala similar.
+\item \emph{Pinball loss} para el cuantil $\tau$: $\ell_\tau(y,\hat q)=\max\{\tau(y-\hat q),(\tau-1)(y-\hat q)\}$; su minimizador es
+el cuantil $\tau$ de la distribución, y promediar sobre varios $\tau$ aproxima el CRPS.
+\item \emph{MASE vs WAPE}: ambas son libres de escala. MASE divide el MAE entre el MAE del naive estacional en entrenamiento
+de \emph{cada serie}, y luego promedia: pondera igual a todos los clientes y es $<1$ si se supera al naive.
+WAPE $=\sum|e|/\sum|y|$ es un error relativo agregado: los clientes grandes dominan y no usa un baseline; además es robusta a $y\approx0$.
+\end{itemize}
+\endgroup
 
 \section{Protocolo y métricas}
 Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (2014-10-01 a 2014-12-31); cada origen usa
