@@ -1,0 +1,81 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,graphicx,amsmath,hyperref,enumitem,xcolor}
+\usepackage{lmodern}
+\setlist{nosep,leftmargin=1.2em}
+\setlength{\parskip}{2pt}
+\renewcommand{\arraystretch}{1.05}
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[PENDIENTE: #1]}}}
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+\title{\vspace{-1.2cm}\textbf{CC3092 -- Laboratorio 9: Series de tiempo y forecasting}\
+\large Consumo eléctrico por hora (ElectricityLoadDiagrams20112014), horizonte $H=24$ h}
+\author{Ángel Esquit \and \todo{integrante 2, carnés}}
+\date{\vspace{-0.8cm}Universidad del Valle de Guatemala -- 1 de noviembre de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Preparación de la serie}
+\textbf{Datos.} Los 140{,}256 registros de 15 min (kW) se convirtieron a kWh ($\times 0.25$) y se sumaron por hora.
+Tras filtrar el periodo 2012--2014 y exigir datos completos desde el 2012-01-01 quedan \textbf{320 de 370 clientes},
+con \textbf{26{,}304 horas} por serie y \textbf{8{,}417{,}280} observaciones en el panel.
+Partición cronológica: entrenamiento hasta 2014-06-30, validación hasta 2014-09-30 y prueba 2014-10-01 a 2014-12-31.
+
+\textbf{Cambio de horario.} En marzo la hora 01:00 no existe (queda con $\approx4\%$ del consumo normal): se marca como
+faltante y se interpola linealmente. En octubre la hora 01:00 acumula dos horas reales ($\approx2\times$): se reemplaza por el
+promedio de la misma hora $\pm7$ días.
+
+\textbf{Escalas.} El consumo medio por cliente (entrenamiento) va de 2.4 a 48{,}817~kWh (mediana 147; razón máx/mín $\approx 2\times10^4$).
+Una normalización global dejaría que unos pocos clientes dominen la pérdida, por lo que se usa \textbf{z-score por serie con
+media y desviación calculadas solo en entrenamiento}; las métricas siempre se reportan en kWh.
+
+\textbf{Calendario.} Hora, día de la semana y mes con seno/coseno (preserva la ciclicidad con 2 dimensiones por variable,
+en vez de 24+7+12 del one-hot) y una binaria de feriado de Portugal. Todas son deterministas, así que se conocen a futuro.
+\todo{describir perfiles hora/día y efecto de Navidad/Año Nuevo con la figura}\;
+Consumo medio global: 636~kWh; 24--26 dic: 477; 31 dic--2 ene: 489 (\,$\approx-25\%$).
+
+\textbf{Ventanas.} Con $L=168$, $H=24$, stride 1 h el \texttt{Dataset} produce
+\textbf{6{,}943{,}040} ventanas de entrenamiento, \textbf{699{,}200} de validación y \textbf{699{,}200} de prueba (320 series).
+
+\textbf{Auditoría de fugas.} (1) \emph{Split aleatorio}: el corte es cronológico y se verifica con \texttt{assert} que ningún
+target de un split cae en el siguiente. (2) \emph{Escalado}: $\mu,\sigma$ solo de entrenamiento. (3) \emph{Early stopping}:
+solo con validación; la prueba se evalúa una vez por modelo. (4) \emph{Covariables}: la entrada es $[t-L,t-1]$, el target
+$[t,t+H-1]$ y solo el calendario determinista se usa a futuro (verificado con \texttt{assert} sobre una ventana).
+
+\section{Investigación de herramientas}
+\todo{resumen breve de: LSTM/GRU (parámetros y formas de output, h\_n, c\_n); Conv1d dilatada y campo receptivo
+$1+(k-1)\sum_i d_i$; TransformerEncoderLayer y codificación posicional; NeuralForecast/StatsForecast
+(unique\_id, ds, y; cross\_validation: n\_windows, step\_size, refit); Chronos predict\_quantiles;
+local vs global, teacher forcing, RevIN, pinball loss, MASE vs WAPE}
+
+\section{Protocolo y métricas}
+Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (2014-10-01 a 2014-12-31); cada origen usa
+datos hasta las 23:00 anteriores. Métricas en kWh: MAE, RMSE, WAPE ($\sum|e|/\sum|y|$), MAPE y MASE (escala: MAE del
+naive estacional de 24 h en entrenamiento, por cliente). El MAPE se dispara con consumo cercano a cero (división entre $\approx0$).
+
+\textbf{Referencia (seasonal naive 24 h, prueba):} MAE 49.4, RMSE 391.8, WAPE 8.47\%, MAPE 14.97\%, MASE 1.046;
+MAE en la semana 22--28 dic: 100.4 (el doble, por el cambio de régimen navideño).
+
+\section{Modelos, iteraciones y resultados}
+\todo{tabla de iteraciones (L, meses de historia, hiperparámetros, pérdidas, MAE/MASE val, parámetros, tiempos, memoria GPU)
+y curvas de pérdida de $\ge3$ iteraciones}
+
+\todo{comparación de estrategias multi-paso del LSTM (autorregresiva, multi-salida, encoder--decoder) y MAE por $h$}
+
+\todo{tabla comparativa ordenada por MASE: familia, L, estrategia, covariables, parámetros, tiempos, hardware,
+MAE/RMSE/WAPE/MASE (H=24, H=168), MASE 22--28 dic, pinball y cobertura P10--P90}
+
+\todo{3 gráficas: MASE vs tiempo de entrenamiento (Pareto), MAE por paso del horizonte, MASE vs meses de historia}
+
+\todo{local vs global (10 clientes)}
+
+\section{Discusión y conclusiones}
+\todo{responder las 8 preguntas de la sección 8 del enunciado y desviación estándar del MASE con 3 semillas}
+
+\bigskip
+\noindent\textbf{Repositorio:} \todo{enlace al repositorio Git}
+\end{document}

@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+scikit-learn
+torch
+holidays
+lightgbm
+statsforecast
+neuralforecast
+chronos-forecasting
+jupyter
+nbformat
