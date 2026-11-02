@@ -1,0 +1,63 @@
+W1101 20:42:15.130000 26088 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+===== itransformer_L168_3k
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 1399/-2 ---------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.260            
+                                                              train_loss_epoch:
+                                                              0.260 valid_loss:
+                                                              30.918           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itransformer_L168_3k {'kind': 'itransformer', 'L': 168, 'months': None, 'val_mase': np.float64(0.8162184580232124), 'val_mae': np.float64(31.52019237083237), 'params_total': 289944, 'params_trainable': 289944, 'train_time': 109.77588129043579, 'gpu_peak_mb': 272.77685546875, 'steps': 0}
+===== nhits_L168_noex_3k
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=3000` reached.
+Epoch 749/-2 ----------------- 4/4 0:00:02 • 0:00:00 1.66it/s train_loss_step: 
+                                                              0.291            
+                                                              train_loss_epoch:
+                                                              0.247 valid_loss:
+                                                              30.027           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 49.76it/s 
+nhits_L168_noex_3k {'kind': 'nhits', 'L': 168, 'months': None, 'val_mase': np.float64(0.8055515161461108), 'val_mae': np.float64(31.531511014729283), 'params_total': 815379, 'params_trainable': 815379, 'train_time': 2078.8089208602905, 'gpu_peak_mb': 4695.51806640625, 'steps': 0}
+===== tcn_L168_noex_3k
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=3000` reached.
+Epoch 749/-2 ---------------- 4/4 0:00:00 • 0:00:00 16.70it/s train_loss_step: 
+                                                              0.287            
+                                                              train_loss_epoch:
+                                                              0.248 valid_loss:
+                                                              30.903           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 17.36it/s 
+tcn_L168_noex_3k {'kind': 'tcn', 'L': 168, 'months': None, 'val_mase': np.float64(0.8251275647925127), 'val_mae': np.float64(31.780488736123736), 'params_total': 74521, 'params_trainable': 74521, 'train_time': 335.10331678390503, 'gpu_peak_mb': 4755.2841796875, 'steps': 0}
+===== patchtst_L168_3k
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Epoch 599/-2 ---------------- 4/4 0:00:00 • 0:00:00 13.57it/s train_loss_step: 
+                                                              0.388            
+                                                              train_loss_epoch:
+                                                              0.305 valid_loss:
+                                                              32.399           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 16.15it/s 
+patchtst_L168_3k {'kind': 'patchtst', 'L': 168, 'months': None, 'val_mase': np.float64(0.863007136972263), 'val_mae': np.float64(33.58497684084602), 'params_total': 466843, 'params_trainable': 466840, 'train_time': 340.4094948768616, 'gpu_peak_mb': 4969.50244140625, 'steps': 0}

@@ -49,6 +49,11 @@ CONFIGS = [
     ("itransformer_L168", "itransformer", 168, None, {}),
     ("deepar_L168_noex", "deepar", 168, None, dict(ex=dict(futr_exog_list=None), inference_windows_batch_size=16, valid_batch_size=16, max_steps=300, val_check_steps=50, windows_batch_size=128)),
     ("patchtst_m3", "patchtst", 168, 3, {}), ("patchtst_m12", "patchtst", 168, 12, {}),
+    # 3000 pasos (la validacion de las corridas de 1000 pasos seguia en descenso lento en TCN y PatchTST)
+    ("itransformer_L168_3k", "itransformer", 168, None, dict(max_steps=3000)),
+    ("nhits_L168_noex_3k", "nhits", 168, None, dict(ex=dict(futr_exog_list=None), max_steps=3000)),
+    ("tcn_L168_noex_3k", "tcn", 168, None, dict(ex=dict(futr_exog_list=None), max_steps=3000)),
+    ("patchtst_L168_3k", "patchtst", 168, None, dict(max_steps=3000)),
     ("tcn_L168_v2", "tcn", 168, None, dict(learning_rate=3e-4, gradient_clip_val=1.0)),
 ]
 

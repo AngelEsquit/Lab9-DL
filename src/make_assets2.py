@@ -3,7 +3,7 @@ import sys; sys.path.insert(0, "src")
 exec(open("src/make_assets.py", encoding="utf-8").read().split("R = {}")[0])    # estilo y rutas
 BS = chr(92)
 runs, rl, rn = load_json("runs.json"), load_json("runs_lgb.json"), load_json("runs_nf.json")
-refs = load_json("val_refs.json")
+refs = load_json("val_refs.json"); rd = load_json("runs_deepar.json")
 
 # ------------------------------------------------------------ MASE (validacion) vs meses de historia
 x = [3, 12, 30]
@@ -43,10 +43,14 @@ def itex(I):
         L.append(f"{r.id.replace('_', ' ')} & {r.L} & {r.meses} & {hc} & {r.lr:g} & {r.epochs} & {r.val_mae:.1f} & {r.val_mase:.3f} & {int(r.params)} & {r.t_epoch:.1f} & {r.gpu_mb:.0f} " + BS + BS)
     L.append(BS + "midrule")
     for rid, nm in [("itransformer_L168", "itransformer L168"), ("nhits_L168_noex", "nhits L168"), ("tcn_L168_noex", "tcn L168"), ("patchtst_L168", "patchtst L168"),
-                    ("patchtst_m3", "patchtst m3"), ("patchtst_m12", "patchtst m12")]:
+                    ("patchtst_m3", "patchtst m3"), ("patchtst_m12", "patchtst m12"), ("itransformer_L168_3k", "itransformer 3k"), ("nhits_L168_noex_3k", "nhits 3k"), ("tcn_L168_noex_3k", "tcn 3k"), ("patchtst_L168_3k", "patchtst 3k")]:
         if rid not in rn: continue
         r = rn[rid]
-        L.append(f"{nm} & {r['L']} & {r['months'] or 30} & - & 1e-3 & 1000 pasos & {r['val_mae']:.1f} & {r['val_mase']:.3f} & {int(r['params_total'])} & {r['train_time']:.0f} (total) & {r['gpu_peak_mb']:.0f} " + BS + BS)
+        L.append(f"{nm} & {r['L']} & {r['months'] or 30} & - & 1e-3 & {'3000' if rid.endswith('3k') else '1000'} pasos & {r['val_mae']:.1f} & {r['val_mase']:.3f} & {int(r['params_total'])} & {r['train_time']:.0f} (total) & {r['gpu_peak_mb']:.0f} " + BS + BS)
+    for rid in ("deepar_base", "deepar_lr3e-3", "deepar_h128_lr3e-3"):
+        if rid not in rd: continue
+        r = rd[rid]; c = r["cfg"]; hs = r["history"]
+        L.append(f"{rid.replace('_', ' ')} & {c['L']} & 30 & {c['hidden']}/{c['layers']} & {c.get('lr', 1e-3):g} & {len(hs)} & {min(h['val_mae'] for h in hs):.1f} & {r['best_val_mase']:.3f} & {int(r['params_total'])} & {np.mean([h['epoch_time'] for h in hs]):.1f} & {r['gpu_peak_mb']:.0f} " + BS + BS)
     return "\n".join(L + [BS + "bottomrule", BS + "end{tabular}"])
 open(os.path.join(RES, "iterations_table.tex"), "w", encoding="utf-8").write(itex(I))
 

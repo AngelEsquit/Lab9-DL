@@ -12,9 +12,9 @@ plt.rcParams.update({"font.size": 8, "axes.edgecolor": GRID, "axes.labelcolor": 
                      "figure.facecolor": "#fcfcfb", "axes.facecolor": "#fcfcfb", "legend.frameon": False, "text.color": INK})
 
 R = {}
-for f in ("final_baselines", "final_own", "final_nf", "final_chronos"): R.update(load_json(f + ".json"))
+for f in ("final_baselines", "final_own", "final_nf", "final_chronos", "final_deepar"): R.update(load_json(f + ".json"))
 ORDER = ["Naive", "SNaive24", "SNaive168", "MSTL", "LightGBM", "MLP", "DLinear", "NLinear", "LSTM (multi-salida)", "LSTM (autorregresivo)",
-         "Seq2seq LSTM", "NHITS", "TCN", "PatchTST", "iTransformer", "Chronos-Bolt"]
+         "Seq2seq LSTM", "NHITS", "TCN", "PatchTST", "iTransformer", "DeepAR", "Chronos-Bolt"]
 R = {k: R[k] for k in ORDER}
 _inf = load_json("infer_nf.json")
 for _k, _v in _inf.items(): R[_k]["infer_time"] = _v
@@ -50,14 +50,14 @@ print("pronosticos:", U.shape, "modelos", U.modelo.nunique())
 # ---------------------------------------------------------------- Fig 1: Pareto MASE vs tiempo de entrenamiento
 fig, ax = plt.subplots(figsize=(3.4, 2.7))
 P = T[T.T_entren_s > 0]
-OFF = {"NLinear": (-22, -8), "DLinear": (3, 3), "LightGBM": (-36, 2), "TCN": (4, -9), "PatchTST": (3, 3), "LSTM (multi-salida)": (-8, 6), "LSTM (autorregresivo)": (-6, -9)}
+OFF = {"NLinear": (-31, -2), "DLinear": (-8, 6), "MLP": (-10, -11), "iTransformer": (4, -10), "LightGBM": (-10, 6), "PatchTST": (2, 6), "LSTM (multi-salida)": (-36, -3), "LSTM (autorregresivo)": (6, -3), "TCN": (-7, -11), "DeepAR": (5, -3), "NHITS": (-12, -12), "Seq2seq LSTM": (5, 2)}
 for i, (_, r) in enumerate(P.iterrows()):
     ax.scatter(r.T_entren_s, r.MASE, s=22, color=SER[0], zorder=3, edgecolor="#fcfcfb", linewidth=1)
     ax.annotate(r.Modelo.replace("(multi-salida)", "MS").replace("(autorregresivo)", "AR").replace(" LSTM", ""), (r.T_entren_s, r.MASE),
                 xytext=OFF.get(r.Modelo, (3, 2)), textcoords="offset points", fontsize=5.5, color=INK2)
 ax.axhline(R["Chronos-Bolt"]["MASE"], color=SER[1], lw=1.2); ax.text(P.T_entren_s.min(), R["Chronos-Bolt"]["MASE"] - 0.008, "Chronos (zero-shot)", color=INK2, fontsize=6, va="top")
 ax.axhline(R["SNaive24"]["MASE"], color=SER[3], lw=1.2); ax.text(P.T_entren_s.min(), R["SNaive24"]["MASE"] + 0.004, "SNaive24", color=INK2, fontsize=6)
-ax.set_xscale("log"); ax.set_xticks([10, 30, 100, 300]); ax.set_xticklabels(["10", "30", "100", "300"]); ax.minorticks_off(); ax.set_xlabel("tiempo de entrenamiento (s, log)"); ax.set_ylabel("MASE en prueba")
+ax.set_xscale("log"); ax.set_xticks([10, 30, 100, 300, 1000, 3000]); ax.set_xticklabels(["10", "30", "100", "300", "1000", "3000"]); ax.minorticks_off(); ax.set_xlabel("tiempo de entrenamiento (s, log)"); ax.set_ylabel("MASE en prueba")
 ax.set_ylim(0.74, 1.06); fig.tight_layout(); fig.savefig(os.path.join(FIG, "pareto.png"), dpi=220); plt.close(fig)
 
 # ---------------------------------------------------------------- Fig 2: MAE por paso del horizonte

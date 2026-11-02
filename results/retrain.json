@@ -538,10 +538,10 @@
   "name": "iTransformer (mensual)",
   "train_time_total": 217.61282467842102,
   "n_retrains": 3,
-  "MASE_fixed": 0.8060980642394893,
-  "MAE_fixed": 29.869612991559723,
-  "RMSE_fixed": 90.55687848804604,
-  "WAPE_fixed": 0.062311214251552685
+  "MASE_fixed": 0.8147294222955042,
+  "MAE_fixed": 30.022379738807935,
+  "RMSE_fixed": 90.96047938472255,
+  "WAPE_fixed": 0.06262990206049704
  },
  "MSTL": {
   "MAE": 35.182685079684454,

@@ -1,0 +1,67 @@
+===== deepar_base {'model': 'deepar', 'L': 168, 'hidden': 64, 'layers': 2, 'dropout': 0.1}
+{'epoch': 1, 'train_loss': 0.1536, 'epoch_time': 11.7145, 'val_loss': 0.2984, 'val_mae': 46.0063, 'val_mase': 1.2083}
+{'epoch': 2, 'train_loss': -0.0903, 'epoch_time': 10.8507, 'val_loss': 0.2935, 'val_mae': 44.9097, 'val_mase': 1.1865}
+{'epoch': 3, 'train_loss': -0.1536, 'epoch_time': 10.8166, 'val_loss': 0.2748, 'val_mae': 41.7142, 'val_mase': 1.093}
+{'epoch': 4, 'train_loss': -0.1989, 'epoch_time': 10.8428, 'val_loss': 0.2696, 'val_mae': 40.1327, 'val_mase': 1.0623}
+{'epoch': 5, 'train_loss': -0.2291, 'epoch_time': 10.9562, 'val_loss': 0.2608, 'val_mae': 38.932, 'val_mase': 1.024}
+{'epoch': 6, 'train_loss': -0.2517, 'epoch_time': 10.9569, 'val_loss': 0.2581, 'val_mae': 38.8051, 'val_mase': 1.0158}
+{'epoch': 7, 'train_loss': -0.2704, 'epoch_time': 10.9262, 'val_loss': 0.2561, 'val_mae': 38.586, 'val_mase': 1.0107}
+{'epoch': 8, 'train_loss': -0.2831, 'epoch_time': 10.846, 'val_loss': 0.2571, 'val_mae': 39.3691, 'val_mase': 1.0204}
+{'epoch': 9, 'train_loss': -0.2953, 'epoch_time': 10.8005, 'val_loss': 0.2467, 'val_mae': 36.9826, 'val_mase': 0.9702}
+{'epoch': 10, 'train_loss': -0.3082, 'epoch_time': 10.8228, 'val_loss': 0.2488, 'val_mae': 37.5731, 'val_mase': 0.9841}
+{'epoch': 11, 'train_loss': -0.3165, 'epoch_time': 10.838, 'val_loss': 0.246, 'val_mae': 36.8556, 'val_mase': 0.9709}
+{'epoch': 12, 'train_loss': -0.3229, 'epoch_time': 10.9839, 'val_loss': 0.2485, 'val_mae': 37.1874, 'val_mase': 0.9802}
+{'epoch': 13, 'train_loss': -0.3301, 'epoch_time': 10.8945, 'val_loss': 0.2406, 'val_mae': 35.9837, 'val_mase': 0.9476}
+{'epoch': 14, 'train_loss': -0.3358, 'epoch_time': 10.8562, 'val_loss': 0.2402, 'val_mae': 35.7575, 'val_mase': 0.9452}
+{'epoch': 15, 'train_loss': -0.342, 'epoch_time': 10.8601, 'val_loss': 0.239, 'val_mae': 35.7334, 'val_mase': 0.9424}
+{'epoch': 16, 'train_loss': -0.3449, 'epoch_time': 10.8864, 'val_loss': 0.2398, 'val_mae': 36.0433, 'val_mase': 0.9448}
+{'epoch': 17, 'train_loss': -0.3484, 'epoch_time': 10.9431, 'val_loss': 0.2379, 'val_mae': 35.5206, 'val_mase': 0.9365}
+{'epoch': 18, 'train_loss': -0.3522, 'epoch_time': 10.9482, 'val_loss': 0.2368, 'val_mae': 35.4521, 'val_mase': 0.9326}
+{'epoch': 19, 'train_loss': -0.3554, 'epoch_time': 11.0145, 'val_loss': 0.2376, 'val_mae': 35.4532, 'val_mase': 0.9355}
+{'epoch': 20, 'train_loss': -0.3573, 'epoch_time': 11.0206, 'val_loss': 0.2368, 'val_mae': 35.4479, 'val_mase': 0.9331}
+-> deepar_base: val_mase=0.9326 ep=18 t=275s
+===== deepar_lr3e-3 {'model': 'deepar', 'L': 168, 'hidden': 64, 'layers': 2, 'dropout': 0.1, 'lr': 0.003}
+{'epoch': 1, 'train_loss': 0.0524, 'epoch_time': 11.0711, 'val_loss': 0.3139, 'val_mae': 52.2751, 'val_mase': 1.3153}
+{'epoch': 2, 'train_loss': -0.1894, 'epoch_time': 11.0264, 'val_loss': 0.2626, 'val_mae': 39.9295, 'val_mase': 1.037}
+{'epoch': 3, 'train_loss': -0.2562, 'epoch_time': 11.0032, 'val_loss': 0.2499, 'val_mae': 37.9363, 'val_mase': 0.9906}
+{'epoch': 4, 'train_loss': -0.294, 'epoch_time': 11.0181, 'val_loss': 0.2438, 'val_mae': 37.7996, 'val_mase': 0.9688}
+{'epoch': 5, 'train_loss': -0.3209, 'epoch_time': 11.0062, 'val_loss': 0.2434, 'val_mae': 36.9683, 'val_mase': 0.9619}
+{'epoch': 6, 'train_loss': -0.3447, 'epoch_time': 11.0955, 'val_loss': 0.236, 'val_mae': 36.2543, 'val_mase': 0.9396}
+{'epoch': 7, 'train_loss': -0.3639, 'epoch_time': 10.9846, 'val_loss': 0.2339, 'val_mae': 36.0302, 'val_mase': 0.9298}
+{'epoch': 8, 'train_loss': -0.377, 'epoch_time': 11.013, 'val_loss': 0.2322, 'val_mae': 35.7302, 'val_mase': 0.926}
+{'epoch': 9, 'train_loss': -0.3901, 'epoch_time': 11.0073, 'val_loss': 0.2289, 'val_mae': 35.8201, 'val_mase': 0.9146}
+{'epoch': 10, 'train_loss': -0.4036, 'epoch_time': 11.0264, 'val_loss': 0.2301, 'val_mae': 35.5015, 'val_mase': 0.9178}
+{'epoch': 11, 'train_loss': -0.4137, 'epoch_time': 10.9067, 'val_loss': 0.2355, 'val_mae': 36.7305, 'val_mase': 0.9522}
+{'epoch': 12, 'train_loss': -0.4218, 'epoch_time': 11.0268, 'val_loss': 0.226, 'val_mae': 34.7803, 'val_mase': 0.9044}
+{'epoch': 13, 'train_loss': -0.4297, 'epoch_time': 11.0261, 'val_loss': 0.2261, 'val_mae': 34.8409, 'val_mase': 0.9031}
+{'epoch': 14, 'train_loss': -0.437, 'epoch_time': 10.9462, 'val_loss': 0.2253, 'val_mae': 34.9094, 'val_mase': 0.9003}
+{'epoch': 15, 'train_loss': -0.4439, 'epoch_time': 10.9206, 'val_loss': 0.225, 'val_mae': 34.5886, 'val_mase': 0.902}
+{'epoch': 16, 'train_loss': -0.4484, 'epoch_time': 11.1143, 'val_loss': 0.224, 'val_mae': 34.6898, 'val_mase': 0.8994}
+{'epoch': 17, 'train_loss': -0.4532, 'epoch_time': 11.0954, 'val_loss': 0.2223, 'val_mae': 34.2949, 'val_mase': 0.8888}
+{'epoch': 18, 'train_loss': -0.4581, 'epoch_time': 11.0354, 'val_loss': 0.2221, 'val_mae': 34.1179, 'val_mase': 0.8881}
+{'epoch': 19, 'train_loss': -0.462, 'epoch_time': 11.0953, 'val_loss': 0.2216, 'val_mae': 34.0535, 'val_mase': 0.8854}
+{'epoch': 20, 'train_loss': -0.4644, 'epoch_time': 11.003, 'val_loss': 0.2214, 'val_mae': 34.0265, 'val_mase': 0.8856}
+-> deepar_lr3e-3: val_mase=0.8854 ep=19 t=277s
+===== deepar_h128_lr3e-3 {'model': 'deepar', 'L': 168, 'hidden': 128, 'layers': 2, 'dropout': 0.1, 'lr': 0.003}
+{'epoch': 1, 'train_loss': -0.0033, 'epoch_time': 35.1535, 'val_loss': 0.2768, 'val_mae': 42.4866, 'val_mase': 1.0996}
+{'epoch': 2, 'train_loss': -0.2631, 'epoch_time': 35.2777, 'val_loss': 0.2559, 'val_mae': 39.2657, 'val_mase': 1.0239}
+{'epoch': 3, 'train_loss': -0.3458, 'epoch_time': 35.3843, 'val_loss': 0.2397, 'val_mae': 37.3748, 'val_mase': 0.9618}
+{'epoch': 4, 'train_loss': -0.3973, 'epoch_time': 35.2772, 'val_loss': 0.2319, 'val_mae': 36.7137, 'val_mase': 0.9268}
+{'epoch': 5, 'train_loss': -0.4388, 'epoch_time': 35.326, 'val_loss': 0.2252, 'val_mae': 34.9648, 'val_mase': 0.9009}
+{'epoch': 6, 'train_loss': -0.4641, 'epoch_time': 35.4259, 'val_loss': 0.2276, 'val_mae': 35.352, 'val_mase': 0.9152}
+{'epoch': 7, 'train_loss': -0.4861, 'epoch_time': 35.1919, 'val_loss': 0.2256, 'val_mae': 35.0334, 'val_mase': 0.9074}
+{'epoch': 8, 'train_loss': -0.5045, 'epoch_time': 35.3319, 'val_loss': 0.2182, 'val_mae': 33.9546, 'val_mase': 0.8706}
+{'epoch': 9, 'train_loss': -0.5224, 'epoch_time': 35.4017, 'val_loss': 0.2189, 'val_mae': 34.4836, 'val_mase': 0.8786}
+{'epoch': 10, 'train_loss': -0.5388, 'epoch_time': 35.3443, 'val_loss': 0.2163, 'val_mae': 34.3284, 'val_mase': 0.8676}
+{'epoch': 11, 'train_loss': -0.5522, 'epoch_time': 35.3342, 'val_loss': 0.2237, 'val_mae': 35.0519, 'val_mase': 0.9048}
+{'epoch': 12, 'train_loss': -0.5634, 'epoch_time': 35.2916, 'val_loss': 0.2201, 'val_mae': 34.259, 'val_mase': 0.887}
+{'epoch': 13, 'train_loss': -0.5741, 'epoch_time': 35.2397, 'val_loss': 0.2235, 'val_mae': 35.6172, 'val_mase': 0.9108}
+{'epoch': 14, 'train_loss': -0.5817, 'epoch_time': 34.7518, 'val_loss': 0.215, 'val_mae': 33.7162, 'val_mase': 0.8615}
+{'epoch': 15, 'train_loss': -0.5916, 'epoch_time': 34.0434, 'val_loss': 0.2137, 'val_mae': 32.9101, 'val_mase': 0.8594}
+{'epoch': 16, 'train_loss': -0.5978, 'epoch_time': 34.225, 'val_loss': 0.2116, 'val_mae': 33.0131, 'val_mase': 0.848}
+{'epoch': 17, 'train_loss': -0.6035, 'epoch_time': 34.2074, 'val_loss': 0.2116, 'val_mae': 32.8722, 'val_mase': 0.8488}
+{'epoch': 18, 'train_loss': -0.6103, 'epoch_time': 34.6303, 'val_loss': 0.2117, 'val_mae': 32.9775, 'val_mase': 0.8498}
+{'epoch': 19, 'train_loss': -0.6159, 'epoch_time': 35.6481, 'val_loss': 0.2112, 'val_mae': 33.0755, 'val_mase': 0.8453}
+{'epoch': 20, 'train_loss': -0.6199, 'epoch_time': 34.2264, 'val_loss': 0.2106, 'val_mae': 32.9073, 'val_mase': 0.8437}
+-> deepar_h128_lr3e-3: val_mase=0.8437 ep=20 t=935s
+DeepAR {'MAE': 31.1616, 'RMSE': 96.5427, 'WAPE': 0.065, 'MASE': 0.8362, 'MASE_xmas': 1.3495, 'coverage_p10_p90': 0.7453, 'pinball': 10.5491}

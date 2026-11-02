@@ -63,17 +63,17 @@ WAPE$=\sum|e|/\sum|y|$ pondera por tamaño y es robusta a $y\approx0$.\normalsiz
 Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (pesos entrenados una vez con datos hasta 2014-09-30). Métricas en kWh: MAE, RMSE, WAPE, MAPE y MASE (escala: MAE del naive de 24 h en entrenamiento, por cliente);
 MAE/RMSE por cliente, por paso $h$ y por hora del día se guardan en \texttt{results/} (\texttt{per\_client\_metrics.csv}). \textbf{MAPE:} solo $\approx1\%$ de las horas de prueba son exactamente 0 (14 clientes) y se excluyen; aun así un
 error relativo individual llega a $785\times$ y el MAPE se mueve de 9.3\% a 8.7\% al descartar $y<10$~kWh, por lo que no se usa para comparar. \textbf{Reentrenamiento mensual} (1-oct, 1-nov, 1-dic, ventana expandible): MLP
-0.8255$\to$0.8268, iTransformer 0.8061$\to$0.8037 y MSTL 0.9115$\to$0.9133 de MASE: \emph{el error prácticamente no cambia} ($\pm0.003$, menos que la varianza por semilla). Nota: MSTL ya se reajustaba en cada origen diario.
+0.8255$\to$0.8268, iTransformer 0.8147$\to$0.8037 y MSTL 0.9115$\to$0.9133 de MASE: \emph{el error prácticamente no cambia} ($\pm0.003$, menos que la varianza por semilla). Nota: MSTL ya se reajustaba en cada origen diario.
 El horizonte $H=168$ no se evaluó (todos los modelos pronostican 24 h).
 
 \section{Iteraciones de hiperparámetros (solo validación)}
 \begin{table}[!htb]\centering\scriptsize\setlength{\tabcolsep}{3pt}
 \input{../results/iterations_table.tex}
-\caption{Iteraciones seleccionadas (completas en \texttt{results/iterations.csv}); MAE$_v$/MASE$_v$ en validación; ép.=epochs; MB=memoria pico de GPU. Las filas inferiores (NeuralForecast, sin covariables) entrenan por pasos; ``s/ép.'' muestra el tiempo total.}
+\caption{Iteraciones seleccionadas (completas en \texttt{results/iterations.csv}); MAE$_v$/MASE$_v$ en validación; ép.=epochs; MB=memoria pico de GPU. Las filas de NeuralForecast (sin covariables) entrenan por pasos y su ``s/ép.'' es el tiempo total; las últimas son DeepAR propio.}
 \end{table}
 \begin{center}\includegraphics[width=0.95\linewidth]{figs/loss_curves.png}\end{center}
 \textbf{Pérdida y MASE.} Menor pérdida de entrenamiento \emph{no} implica mejor MASE: la LSTM $h$=128 (lr 3e-3) termina con pérdida de entrenamiento 0.210, menor que DLinear (0.217) y que el MLP con normalización por ventana (0.260), pero su MASE$_v$ es peor (0.855 vs. 0.835 y 0.800; el MLP regulariza con dropout y las pérdidas bajo normalizaciones distintas no son estrictamente comparables). \textbf{Hallazgo NeuralForecast:} al pasar el calendario como \texttt{futr\_exog\_list}, NHITS y TCN divergieron (MASE$_v$ 1.66 y 29.5, sin cambiar con lr 3e-3/3e-4 ni recorte de gradiente);
-sin exógenas convergen (0.833 y 0.890), por lo que los modelos de NeuralForecast se reportan sin covariables. Los 4 modelos se entrenaron con $\le1000$ pasos y la validación seguía bajando, por lo que están sub-entrenados.
+sin exógenas convergen (0.833 y 0.890), por lo que los modelos de NeuralForecast se reportan sin covariables. Con 3000 pasos (filas ``3k'') NHITS mejora a 0.806, TCN a 0.825 y PatchTST a 0.863; iTransformer se detiene antes por early stopping y queda peor (0.816 vs. 0.805 con 1000 pasos). Para cada familia se usó la corrida de mejor MASE$_v$: NHITS 3k, TCN 3k, PatchTST 3k e iTransformer 1k.
 
 \textbf{5.1 Estrategias multi-paso} (LSTM $h=128$, lr 3e-3). MAE de $h=1$--6 $\to$ $h=19$--24: autorregresiva 22.8$\to$40.2 ($+76\%$), multi-salida 24.6$\to$37.0 ($+50\%$), encoder--decoder 25.8$\to$42.1 ($+63\%$).
 La autorregresiva gana en los primeros pasos ($h=1$: 21.2 vs. 26.3) y pierde desde $h\approx10$: sí se observa acumulación de error. El MAE tiene además un pico a $h\approx17$--20 (tarde-noche) por el ciclo diario, así que no crece de forma monótona.
@@ -83,29 +83,29 @@ La autorregresiva gana en los primeros pasos ($h=1$: 21.2 vs. 26.3) y pierde des
 \input{../results/comparison_table.tex}
 \caption{Prueba (92 orígenes, 100 clientes), ordenada por MASE. MS=multi-salida, AR=autorregresivo; Cov.=usa calendario; $t_{ent}$ y $t_{inf}$ (92 orígenes) en segundos; HW = hardware (GPU GTX 1660 SUPER o CPU). Chronos: solo inferencia, 47.7 M parámetros. Los modelos de NeuralForecast se evaluaron con pesos entrenados con datos hasta 2014-09-30. MASE$_{22\text{-}28}$: semana del 22 al 28 de dic.}
 \end{table}
-\textbf{Probabilístico.} Solo Chronos-Bolt: pinball 9.37 kWh y cobertura P10--P90 de 80.4\% (nominal 80\%, bien calibrado). \textbf{DeepAR no se completó}: falló por memoria (60 GB solicitados en validación) y, con menos pasos,
-no terminó tras $>25$ min en la GPU de 6 GB. Tampoco se evaluó TFT (se usó iTransformer).
+\textbf{Probabilístico.} Chronos-Bolt: pinball 9.37 kWh y cobertura P10--P90 de 80.4\% (nominal 80\%, bien calibrado). \textbf{DeepAR} (implementación propia en PyTorch: LSTM de 2 capas, cabeza Student-$t$, calendario como covariables, 100 trayectorias muestreadas):
+MASE 0.836, pinball 10.55 kWh y cobertura 74.5\% (algo sobreconfiado). \texttt{NeuralForecast.DeepAR} no fue viable en la GPU de 6 GB (60 GB solicitados en validación y $>25$ min sin completar 300 pasos). No se evaluó TFT (se usó iTransformer).
 \begin{center}\includegraphics[width=0.44\linewidth]{figs/pareto.png}\hfill\includegraphics[width=0.54\linewidth]{figs/mae_horizon.png}\end{center}
 \begin{center}\includegraphics[width=0.44\linewidth]{figs/months.png}\hfill\includegraphics[width=0.44\linewidth]{figs/local_global.png}\end{center}
 \captionof{figure}{Arriba: MASE de prueba vs. tiempo de entrenamiento (escala log; líneas: Chronos y SNaive24) y MAE por paso del horizonte. Abajo: MASE de validación vs. meses de historia (líneas punteadas: SNaive168 y Chronos) y MASE local vs. global por cliente (kWh medio entre paréntesis).}
 
 \textbf{5.3 Local vs global} (MLP, 10 clientes, semilla fija): MASE global \textbf{0.852} vs. local \textbf{0.808} (MAE 23.5 vs. 21.9 kWh). El local gana en 8 de 10; el global solo en MT\_168 y MT\_280 (clientes pequeños, 135 y 285~kWh medios) y por poco.
-Los 5 clientes $\ge500$~kWh mejoran con el modelo local (p. ej. MT\_101: 0.763$\to$0.632). Costo: 10 modelos locales 177 s vs. 32 s del global. \textbf{Semillas} (3): MLP $0.823\pm0.002$; iTransformer $0.812\pm0.016$ (0.806, 0.831, 0.800).
+Los 5 clientes $\ge500$~kWh mejoran con el modelo local (p. ej. MT\_101: 0.763$\to$0.632). Costo: 10 modelos locales 177 s vs. 32 s del global. \textbf{Semillas} (3): MLP $0.823\pm0.002$; iTransformer $0.812\pm0.016$ (0.806, 0.831, 0.800, reajustando dentro de \texttt{cross\_validation}; la tabla muestra 0.815 con el checkpoint de 1000 pasos).
 
 \begin{center}\includegraphics[width=0.95\linewidth]{figs/hour_xmas.png}\end{center}
-\captionof{figure}{MAE por hora del día de ocho modelos representativos (el pico de error está en la tarde-noche) y MASE de toda la prueba contra el de la semana 22--28 de diciembre para los 15 modelos.}
+\captionof{figure}{MAE por hora del día de ocho modelos representativos (el pico de error está en la tarde-noche) y MASE de toda la prueba contra el de la semana 22--28 de diciembre para los 16 modelos (sin Naive).}
 \section{Discusión y conclusiones}
-\textbf{Ganador.} Chronos-Bolt zero-shot (MASE 0.760; MAE 28.1) superó al seasonal naive 24 h (1.043; MAE 39.1) en un 27\%, sin entrenar; el mejor modelo entrenado (iTransformer, 0.806) lo supera en 23\%, y el MLP (0.826, 32 s, 158 k parámetros) en 21\%.
-Sí se justifica pasar del naive a un modelo: el MLP cuesta segundos y el reentrenamiento mensual no aportó, por lo que el mantenimiento es bajo. En la frontera de Pareto quedan Chronos, NLinear, MLP e iTransformer; NHITS (383 s) y las LSTM (290--425 s) quedan dominadas.
+\textbf{Ganador.} Chronos-Bolt zero-shot (MASE 0.760; MAE 28.1) superó al seasonal naive 24 h (1.043; MAE 39.1) en un 27\%, sin entrenar; el mejor modelo entrenado (NHITS, 0.804, pero 2079 s de entrenamiento) lo supera en 23\%, iTransformer (0.815, 71 s) en 22\% y el MLP (0.826, 32 s, 158 k parámetros) en 21\%.
+Sí se justifica pasar del naive a un modelo: el MLP cuesta segundos y el reentrenamiento mensual no aportó, por lo que el mantenimiento es bajo; NHITS gana solo 0.02 de MASE sobre iTransformer a 30 veces el costo. En la frontera de Pareto quedan Chronos, NLinear, MLP, iTransformer y NHITS; DeepAR, TCN y las LSTM quedan dominadas.
 
 
-\textbf{Ruido.} Con $\pm0.016$ de desviación entre semillas en iTransformer, las diferencias entre los 5 mejores entrenados (0.806--0.853) no son concluyentes; solo Chronos y la brecha con los baselines lo son.
+\textbf{Ruido.} Con $\pm0.016$ de desviación entre semillas en iTransformer, las diferencias entre los 6 mejores entrenados (0.804--0.853) no son concluyentes; solo Chronos y la brecha con los baselines lo son.
 
 
-\textbf{DLinear.} Se replica parcialmente: DLinear (0.855) supera a PatchTST (0.878), a LightGBM (0.867) y a la LSTM, con menor error que PatchTST en $h$=1--6 y 19--24 (24.6 vs. 24.8 y 36.3 vs. 37.2), pero no a iTransformer, NHITS ni Chronos (35.0 y 32.9 en el mismo tramo).
+\textbf{DLinear.} Se replica parcialmente: DLinear (0.855) supera por poco a PatchTST (0.864), a LightGBM (0.867) y a las LSTM; PatchTST es mejor en $h$=1--6 (23.8 vs. 24.6) y DLinear en $h$=19--24 (36.3 vs. 36.6). No supera a NHITS, iTransformer ni Chronos (34.8, 35.2 y 32.9 en $h$=19--24).
 
 
-\textbf{Estrategia multi-paso.} La multi-salida fue la mejor y más estable en $h$ largos; la autorregresiva solo gana a $h\le9$. El error crece $\approx50$--$76\%$ del tramo $h$=1--6 al 19--24 en todas las familias, también en Chronos ($+60\%$).
+\textbf{Estrategia multi-paso.} La multi-salida fue la mejor y más estable en $h$ largos; la autorregresiva solo gana a $h\le9$. El error crece del tramo $h$=1--6 al 19--24 un 47\% (DLinear), 54--60\% (NeuralForecast, Chronos) y 74--76\% en los dos modelos autorregresivos (LSTM AR y DeepAR): la acumulación de error es mayor en esa estrategia.
 
 
 \textbf{Ventana, normalización e historia} (validación). $L$: DLinear 0.905 ($L$=48) vs. 0.835 (168/336); MLP 0.816$\to$0.803 y NLinear 0.835$\to$0.817 con $L$=336; la LSTM no cambia. Normalización por ventana: MLP 0.816$\to$0.800, LSTM 0.989$\to$0.957, DLinear sin efecto.
@@ -115,13 +115,13 @@ Historia (3/12/30 meses): DLinear 0.826/0.845/0.835 (3 meses basta), LightGBM 0.
 \textbf{Local vs global.} No convino el global en nuestros datos (0.852 vs. 0.808): con un MLP de 158 k parámetros y 100 clientes heterogéneos, la capacidad compartida parece limitar a los clientes grandes; solo dos pequeños se benefician del global. Es un experimento de 10 clientes y una semilla.
 
 
-\textbf{Chronos.} Quedó \emph{por delante} de todos los modelos entrenados (0.760 vs. 0.806). Lo usaríamos al arrancar un cliente nuevo, sin infraestructura de entrenamiento o como baseline; entrenar tendría sentido para usar calendario/covariables, modelar cuantiles propios o ajustar a un cliente.
+\textbf{Chronos.} Quedó \emph{por delante} de todos los modelos entrenados (0.760 vs. 0.804) y con mejor calibración (80.4\% vs. 74.5\% de DeepAR). Lo usaríamos al arrancar un cliente nuevo, sin infraestructura de entrenamiento o como baseline; entrenar tendría sentido para usar calendario/covariables, modelar cuantiles propios o ajustar a un cliente.
 
 
-\textbf{Navidad/Año Nuevo.} El MASE de 22--28 dic sube de $\approx$0.8 a 1.36--2.2 en \emph{todos} los modelos (SNaive24 2.20, DLinear/NLinear 1.80, MLP 1.47, LSTM MS 1.38, Chronos 1.36): hubo un cambio de régimen general. Los modelos con calendario (MLP, LSTM, LightGBM) no superan sistemáticamente a los que no lo usan (Chronos, iTransformer, NHITS), y el feriado marca solo el día 25 mientras la caída dura varios días.
+\textbf{Navidad/Año Nuevo.} El MASE de 22--28 dic sube de $\approx$0.8 a 1.36--2.2 en \emph{todos} los modelos (SNaive24 2.20, DLinear/NLinear 1.80, MLP 1.47, LSTM MS 1.38, DeepAR 1.35, Chronos 1.36): hubo un cambio de régimen general. Los modelos con calendario (MLP, LSTM, LightGBM, DeepAR) no superan sistemáticamente a los que no lo usan (Chronos, iTransformer, NHITS), y el feriado marca solo el día 25 mientras la caída dura varios días.
 
 
-\textbf{Limitaciones.} 100 clientes, 1000 pasos en los modelos de NeuralForecast (sin calendario, comparación no homogénea con los propios), DeepAR no completado y una sola partición de prueba.
+\textbf{Limitaciones.} 100 clientes; 1000--3000 pasos en los modelos de NeuralForecast, que van sin calendario (comparación no homogénea con los propios); DeepAR es implementación propia, no la de NeuralForecast; no se evaluó TFT ni $H=168$; una sola partición de prueba.
 
 \medskip
 \noindent\textbf{Repositorio:} \url{https://github.com/AngelEsquit/Lab9-DL}

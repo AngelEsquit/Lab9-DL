@@ -53,13 +53,16 @@ md('''
 Scripts: `src/run_baselines.py` (StatsForecast: Naive, SeasonalNaive 24/168, MSTL; LightGBM global recursivo con rezagos 1–24, 168 y calendario),
 `src/run_nf.py` + `src/run_nf_test.py` (NeuralForecast: NHITS, TCN, PatchTST, iTransformer) y `src/run_chronos.py` (Chronos-Bolt zero-shot).
 **Hallazgo:** al pasar el calendario como `futr_exog_list` NHITS y TCN divergían (MASE 1.66 y 29.5 en validación); sin exógenas convergen
-(0.833 y 0.890), por lo que los modelos de NeuralForecast se reportan sin covariables. **DeepAR no se completó** (error de memoria en
-validación y tiempo de entrenamiento excesivo en una GPU de 6 GB).
+(0.833 y 0.890), por lo que los modelos de NeuralForecast se reportan sin covariables. **DeepAR:** `NeuralForecast.DeepAR` no fue viable en la GPU de 6 GB (error de memoria en validación y tiempos excesivos), por lo que se
+implementó **DeepAR propio en PyTorch** (`src/deepar.py`: LSTM de 2 capas autorregresivo, cabeza Student-t, calendario como covariables,
+entrenado por máxima verosimilitud con teacher forcing y pronóstico por muestreo de 100 trayectorias; cuantiles P10/P50/P90 de las muestras).
+Los modelos de NeuralForecast se entrenan una vez (datos hasta 2014-09-30) y se evalúan en prueba con `nf.predict` origen por origen.
 ''')
 code('''
 runs = load_json("runs.json"); runs_nf = load_json("runs_nf.json"); runs_lgb = load_json("runs_lgb.json")
 for k, v in runs_nf.items(): print(f"{k:22s} val_MASE={v['val_mase']:.4f} params={v['params_total']:,} t={v['train_time']:.0f}s")
 for k, v in runs_lgb.items(): print(f"{k:22s} val_MASE={v['val_mase']:.4f}")
+for k, v in load_json("runs_deepar.json").items(): print(f"{k:22s} val_MASE={v['best_val_mase']:.4f} params={v['params_total']:,} t={v['train_time']:.0f}s")
 ''')
 
 md('''

@@ -1,0 +1,753 @@
+W1101 21:30:22.310000 12852 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 233.81it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 272.40it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 273.05it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 305.41it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 289.93it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 322.20it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 325.04it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 344.90it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 316.70it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 275.55it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 309.84it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 351.74it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 306.42it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 298.36it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 341.81it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 268.52it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 299.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 333.87it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 345.47it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 283.57it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 306.56it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 341.76it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 324.95it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 318.59it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 317.55it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 288.16it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 287.08it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 302.64it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 311.24it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 359.40it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 340.16it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 306.82it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 299.63it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 279.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 345.83it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 297.97it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 297.33it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 313.33it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 298.98it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 304.49it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 298.46it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 310.07it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 297.76it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 295.51it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 332.48it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 306.01it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 335.82it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 307.69it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 298.89it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 292.02it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 321.77it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 302.07it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 308.54it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 290.59it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 327.28it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 319.87it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 296.03it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 324.21it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 320.04it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 313.62it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 329.37it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 338.12it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 289.11it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 291.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 243.71it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 335.05it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 303.46it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 323.58it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 355.48it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 331.69it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 282.63it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 312.34it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 343.23it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 307.60it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 268.08it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 289.97it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 309.76it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 344.15it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 343.71it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 348.14it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 304.96it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 287.84it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 356.98it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 296.14it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 336.36it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 341.05it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 305.56it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 285.77it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 308.12it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 280.02it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 332.56it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 238.21it/s 
+NHITS nhits_L168_noex_3k {'MAE': 29.8463, 'RMSE': 92.1444, 'WAPE': 0.0623, 'MASE': 0.8044, 'MASE_xmas': 1.3674}
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 147.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 152.74it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 128.28it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 140.17it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.03it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 96.27it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 130.43it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.40it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 102.12it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.31it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.16it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 127.64it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.74it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.62it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 130.38it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.24it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 153.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.01it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 150.47it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 146.70it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.11it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 186.55it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 145.90it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 124.29it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.28it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 157.96it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 137.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 146.39it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 147.60it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 143.25it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 22.55it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 184.23it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 299.93it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 296.42it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 270.06it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 303.11it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 294.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 318.15it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 321.76it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 283.29it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 297.08it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 292.86it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 292.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 290.45it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 302.78it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 330.39it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 293.05it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 299.14it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 278.68it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 327.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 301.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 268.51it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 269.40it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 334.63it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 284.74it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 297.84it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 248.23it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 314.87it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 317.48it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 343.60it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 275.45it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 137.40it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 180.52it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 161.36it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 137.48it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.14it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 145.38it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 143.11it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 148.29it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 158.30it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 148.53it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 134.97it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 130.68it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 161.93it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 145.77it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 150.94it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 162.89it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 149.51it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.50it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 131.75it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 139.18it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.01it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.05it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 160.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.16it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 153.69it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 158.39it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 143.51it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.60it/s 
+TCN tcn_L168_noex_3k {'MAE': 31.0427, 'RMSE': 97.7507, 'WAPE': 0.0648, 'MASE': 0.8366, 'MASE_xmas': 1.5171}
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.15it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 61.96it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 77.20it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 188.33it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 185.89it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 171.70it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 190.67it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 190.92it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 209.81it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 211.74it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 188.33it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 204.01it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 203.60it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 201.51it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 172.09it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 164.96it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 213.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 173.03it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 178.89it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 205.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 203.63it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 155.94it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 199.97it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 197.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 177.03it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 165.33it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 134.64it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.85it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 126.69it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.86it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 81.78it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 134.28it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 134.31it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 150.47it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 120.30it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.18it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.23it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 164.34it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 158.61it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 128.12it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.39it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 128.36it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 129.77it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 125.24it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 119.58it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.26it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 127.87it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.16it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 145.46it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 120.46it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 139.77it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 132.98it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 129.20it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 125.52it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 127.29it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 126.27it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.95it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 122.83it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.82it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 132.22it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.97it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 156.73it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 112.09it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 127.07it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.02it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 150.44it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 151.08it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 149.09it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 123.71it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 149.95it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 118.80it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 88.49it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 162.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 163.88it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 104.88it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 127.41it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 136.94it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 162.02it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 133.88it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 141.73it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 132.34it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.68it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.41it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 142.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.72it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 144.08it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 156.83it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 135.37it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 116.22it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 116.84it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 151.34it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting --------------------------------- 4/4 0:00:00 • 0:00:00 138.70it/s 
+PatchTST patchtst_L168_3k {'MAE': 32.0467, 'RMSE': 98.0855, 'WAPE': 0.0669, 'MASE': 0.8636, 'MASE_xmas': 1.597}
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+iTransformer itransformer_L168 {'MAE': 30.0224, 'RMSE': 90.9605, 'WAPE': 0.0626, 'MASE': 0.8147, 'MASE_xmas': 1.4099}
