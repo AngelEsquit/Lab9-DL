@@ -1,0 +1,53 @@
+mlp seed 43 0.8209425471223842
+mlp seed 44 0.8223949141766275
+W1101 19:44:38.454000 12916 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Seed set to 2
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.278            
+                                                              train_loss_epoch:
+                                                              0.278 valid_loss:
+                                                              31.556           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.269            
+                                                              train_loss_epoch:
+                                                              0.269 valid_loss:
+                                                              30.653           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itrans seed 2 0.8305157947217364
+Seed set to 3
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.261            
+                                                              train_loss_epoch:
+                                                              0.261 valid_loss:
+                                                              32.287           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.254            
+                                                              train_loss_epoch:
+                                                              0.254 valid_loss:
+                                                              31.221           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itrans seed 3 0.799840250888005
+MLP {'MASE_by_seed': {'42': 0.8255313400429357, '43': 0.8209425471223842, '44': 0.8223949141766275}, 'mean': 0.8229562671139825, 'std': 0.002345334295390245}
+iTransformer {'MASE_by_seed': {'1': 0.8060980642394893, '2': 0.8305157947217364, '3': 0.799840250888005}, 'mean': 0.8121513699497437, 'std': 0.01620892130556941}

@@ -1,0 +1,6 @@
+W1101 17:05:22.000000 9040 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+===== deepar_L168_noex
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]

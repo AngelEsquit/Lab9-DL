@@ -1,0 +1,6 @@
+DLinear dlinear_lr3e-3 {'MAE': 32.084, 'RMSE': 99.9448, 'WAPE': 0.0669, 'MASE': 0.8547, 'MASE_xmas': np.float64(1.7986)}
+NLinear nlinear_L336 {'MAE': 31.9567, 'RMSE': 99.8727, 'WAPE': 0.0667, 'MASE': 0.8528, 'MASE_xmas': np.float64(1.7972)}
+MLP mlp_L168_win {'MAE': 30.5222, 'RMSE': 92.6878, 'WAPE': 0.0637, 'MASE': 0.8255, 'MASE_xmas': np.float64(1.4683)}
+LSTM (multi-salida) lstm_h128_lr3e-3 {'MAE': 31.8469, 'RMSE': 96.8364, 'WAPE': 0.0664, 'MASE': 0.8578, 'MASE_xmas': np.float64(1.3814)}
+LSTM (autorregresivo) lstm_auto_h128_lr3e-3 {'MAE': 32.7443, 'RMSE': 101.9385, 'WAPE': 0.0683, 'MASE': 0.857, 'MASE_xmas': np.float64(1.4576)}
+Seq2seq LSTM seq2seq_h128_lr3e-3 {'MAE': 35.1855, 'RMSE': 104.0116, 'WAPE': 0.0734, 'MASE': 0.9167, 'MASE_xmas': np.float64(1.3777)}

@@ -1,0 +1,33 @@
+W1101 19:52:18.128000 10600 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+===== patchtst_m3
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 249/-2 ---------------- 4/4 0:00:00 • 0:00:00 27.97it/s train_loss_step: 
+                                                              0.269            
+                                                              train_loss_epoch:
+                                                              0.287 valid_loss:
+                                                              33.435           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 21.45it/s 
+patchtst_m3 {'kind': 'patchtst', 'L': 168, 'months': 3, 'val_mase': np.float64(0.8667428340996075), 'val_mae': np.float64(34.225592679684254), 'params_total': 466843, 'params_trainable': 466840, 'train_time': 82.18259859085083, 'gpu_peak_mb': 779.80810546875, 'steps': 0}
+===== patchtst_m12
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 249/-2 ---------------- 4/4 0:00:00 • 0:00:00 21.17it/s train_loss_step: 
+                                                              0.256            
+                                                              train_loss_epoch:
+                                                              0.289 valid_loss:
+                                                              32.879           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ---------------------------------- 4/4 0:00:00 • 0:00:00 19.53it/s 
+patchtst_m12 {'kind': 'patchtst', 'L': 168, 'months': 12, 'val_mase': np.float64(0.8812189928599995), 'val_mae': np.float64(34.38429319912141), 'params_total': 466843, 'params_trainable': 466840, 'train_time': 95.27239346504211, 'gpu_peak_mb': 2181.18359375, 'steps': 0}

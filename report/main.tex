@@ -1,122 +1,128 @@
-\documentclass[10pt,letterpaper]{article}
+\documentclass[10pt,letterpaper]{extarticle}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish,es-tabla]{babel}
-\usepackage[margin=1.8cm]{geometry}
-\usepackage{booktabs,array,graphicx,amsmath,hyperref,enumitem,xcolor}
+\usepackage[margin=1.6cm,top=1.4cm,bottom=1.5cm]{geometry}
+\usepackage{booktabs,array,graphicx,amsmath,hyperref,enumitem,xcolor,caption}
 \usepackage{lmodern}
-\setlist{nosep,leftmargin=1.2em}
-\setlength{\parskip}{2pt}
-\renewcommand{\arraystretch}{1.05}
-\newcommand{\todo}[1]{\textcolor{red}{\textbf{[PENDIENTE: #1]}}}
+\setlist{nosep,leftmargin=1.1em}
+\setlength{\parskip}{1.5pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.0}
+\captionsetup{font=scriptsize,skip=1pt}
 \hypersetup{colorlinks=true,urlcolor=blue}
+\usepackage{titlesec}
+\newcommand{\PTMONTHS}{PatchTST (con 1000 pasos): 0.867/0.881/0.888, también mejor con menos historia; de 12 a 30 meses ningún modelo mejora más de 0.015, así que la ganancia de más historia es pequeña salvo en la LSTM entre 3 y 12 meses.}
+\titleformat{\section}{\normalsize\bfseries}{\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{3pt}{1.5pt}
 
-\title{\vspace{-1.2cm}\textbf{CC3092 -- Laboratorio 9: Series de tiempo y forecasting}\
-\large Consumo eléctrico por hora (ElectricityLoadDiagrams20112014), horizonte $H=24$ h}
-\author{Ángel Esquit \and \todo{integrante 2, carnés}}
-\date{\vspace{-0.8cm}Universidad del Valle de Guatemala -- 1 de noviembre de 2026}
+\title{\vspace{-1.4cm}\textbf{CC3092 -- Laboratorio 9: Series de tiempo y forecasting}\\
+\normalsize Consumo eléctrico por hora (ElectricityLoadDiagrams20112014), horizonte $H=24$ h}
+\author{Ángel Esquit}
+\date{Universidad del Valle de Guatemala -- 1 de noviembre de 2026}
 
 \begin{document}
 \maketitle
+\vspace{-0.9cm}
 
-\section{Preparación de la serie}
-\textbf{Datos.} Los 140{,}256 registros de 15 min (kW) se convirtieron a kWh ($\times 0.25$) y se sumaron por hora.
-Tras filtrar el periodo 2012--2014 y exigir datos completos desde el 2012-01-01 quedan \textbf{320 de 370 clientes},
-con \textbf{26{,}304 horas} por serie y \textbf{8{,}417{,}280} observaciones en el panel.
-Partición cronológica: entrenamiento hasta 2014-06-30, validación hasta 2014-09-30 y prueba 2014-10-01 a 2014-12-31.
+\section{Preparación de la serie y auditoría de fugas}
+\textbf{Datos.} Los 140{,}256 registros de 15 min (kW) se pasaron a kWh ($\times0.25$) y se sumaron por hora. Con el filtro 2012--2014 y datos
+completos desde 2012-01-01 quedan \textbf{320 de 370 clientes}, \textbf{26{,}304 horas} por serie y \textbf{8{,}417{,}280} observaciones.
+Los modelos usan el \textbf{mismo subconjunto de 100 clientes} (semilla 42), por cómputo (GPU de 6 GB). Partición cronológica: entrenamiento hasta 2014-06-30,
+validación hasta 2014-09-30, prueba 2014-10-01 a 2014-12-31.
+\textbf{Cambio de horario.} En marzo la hora 01:00 no existe (queda con $\approx4\%$ del consumo): se marca faltante y se interpola; en octubre la
+01:00 acumula dos horas ($\approx2\times$): se reemplaza por el promedio de la misma hora $\pm7$ días.
+\textbf{Escalas.} El consumo medio va de 2.4 a 48{,}817~kWh (mediana 147; razón $\approx2\times10^4$): un z-score global haría que unos pocos clientes
+dominen la pérdida, por lo que se usa \textbf{z-score por serie con $\mu,\sigma$ solo de entrenamiento} (y, como alternativa, por ventana); las métricas se
+reportan siempre en kWh. \textbf{Calendario:} hora, día de la semana y mes con seno/coseno (2 dimensiones por variable en vez de 24+7+12 del one-hot, y preserva la
+ciclicidad) y una binaria de feriado de Portugal; son deterministas, conocidas a futuro. La figura muestra el perfil diario (valle nocturno, meseta 10--20 h),
+el semanal (domingo $\approx-3\%$ vs. viernes) y diciembre: el 25 el consumo cae a $\approx$310~kWh frente a $\approx$540 de un día normal ($-43\%$);
+24--26 dic: 477~kWh y 31 dic--2 ene: 489 contra una media global de 636 ($\approx-25\%$).
+\textbf{Ventanas} ($L=168$, $H=24$, stride 1 h): 320 series $\to$ 6{,}943{,}040 / 699{,}200 / 699{,}200 (train/val/test); subconjunto de 100 clientes $\to$ \textbf{2{,}169{,}700 / 218{,}500 / 218{,}500}.
 
-\textbf{Cambio de horario.} En marzo la hora 01:00 no existe (queda con $\approx4\%$ del consumo normal): se marca como
-faltante y se interpola linealmente. En octubre la hora 01:00 acumula dos horas reales ($\approx2\times$): se reemplaza por el
-promedio de la misma hora $\pm7$ días.
+\begin{center}\includegraphics[width=0.93\linewidth]{figs/explore.png}\end{center}\vspace{-0.3cm}
+\textbf{Auditoría de fugas} (cada una verificada con \texttt{assert} en el notebook). (1) \emph{Split aleatorio}: el corte es cronológico y ningún target de un split
+cae en el siguiente. (2) \emph{Escalado con toda la serie}: $\mu,\sigma$ solo de entrenamiento. (3) \emph{Early stopping con la prueba}: solo se usa validación; la prueba se evalúa una vez por modelo.
+(4) \emph{Covariables mal alineadas}: la entrada es $[t-L,t-1]$, el target $[t,t+H-1]$ y solo el calendario determinista se usa a futuro.
 
-\textbf{Escalas.} El consumo medio por cliente (entrenamiento) va de 2.4 a 48{,}817~kWh (mediana 147; razón máx/mín $\approx 2\times10^4$).
-Una normalización global dejaría que unos pocos clientes dominen la pérdida, por lo que se usa \textbf{z-score por serie con
-media y desviación calculadas solo en entrenamiento}; las métricas siempre se reportan en kWh.
-
-\textbf{Calendario.} Hora, día de la semana y mes con seno/coseno (preserva la ciclicidad con 2 dimensiones por variable,
-en vez de 24+7+12 del one-hot) y una binaria de feriado de Portugal. Todas son deterministas, así que se conocen a futuro.
-\todo{describir perfiles hora/día y efecto de Navidad/Año Nuevo con la figura}\;
-Consumo medio global: 636~kWh; 24--26 dic: 477; 31 dic--2 ene: 489 (\,$\approx-25\%$).
-
-\textbf{Ventanas.} Con $L=168$, $H=24$, stride 1 h el \texttt{Dataset} produce
-\textbf{6{,}943{,}040} ventanas de entrenamiento, \textbf{699{,}200} de validación y \textbf{699{,}200} de prueba (320 series).
-
-\textbf{Auditoría de fugas.} (1) \emph{Split aleatorio}: el corte es cronológico y se verifica con \texttt{assert} que ningún
-target de un split cae en el siguiente. (2) \emph{Escalado}: $\mu,\sigma$ solo de entrenamiento. (3) \emph{Early stopping}:
-solo con validación; la prueba se evalúa una vez por modelo. (4) \emph{Covariables}: la entrada es $[t-L,t-1]$, el target
-$[t,t+H-1]$ y solo el calendario determinista se usa a futuro (verificado con \texttt{assert} sobre una ventana).
-
-\section{Investigación de herramientas}
-\begingroup\small\sloppy
-\textbf{Herramientas de PyTorch.}
-\begin{itemize}
-\item \texttt{nn.LSTM / nn.GRU}: \texttt{input\_size} (features por paso), \texttt{hidden\_size}, \texttt{num\_layers},
-\texttt{batch\_first} (si es \texttt{True} la entrada es $(B,L,F)$) y \texttt{dropout} (entre capas, no tras la última;
-solo actúa si \texttt{num\_layers}$>1$). Salidas: \texttt{output} $(B,L,D\cdot h)$ con el estado oculto de la última capa en
-cada paso; \texttt{h\_n} $(D\cdot\text{capas},B,h)$ con el último estado de cada capa; \texttt{c\_n}, de igual forma, solo en
-la LSTM (celda de memoria; la GRU no la tiene). $D=2$ si es bidireccional.
-\item \texttt{nn.Conv1d} con \texttt{dilation}: se hace causal rellenando $(k-1)d$ ceros \emph{solo a la izquierda}
-(\texttt{F.pad}) y usando \texttt{padding=0}, de modo que la salida en $t$ no ve $t+1$. El campo receptivo de una TCN es
-$RF=1+\sum_{i}(k-1)\,d_i$ (se duplica el término si cada bloque residual usa dos convoluciones). Con $d_i=2^i$ y $k=3$
-(una conv por nivel), $RF=1+2(2^n-1)$: hacen falta $n=7$ niveles ($RF=255$) para cubrir $L=168$; con $n=6$ solo se ven 127 h.
-\item \texttt{nn.TransformerEncoderLayer}: \texttt{d\_model} (dimensión de embedding), \texttt{nhead} (cabezas; \texttt{d\_model}
-debe ser divisible por \texttt{nhead}), \texttt{dim\_feedforward} (capa oculta de la MLP interna, 2048 por defecto), además de
-\texttt{dropout}, \texttt{batch\_first} y \texttt{norm\_first}. La atención no tiene noción de orden, por lo que se \emph{suma}
-al embedding de entrada una codificación posicional (seno/coseno fija, $PE_{(p,2i)}=\sin(p/10^{4\cdot 2i/d})$, o aprendida con
-\texttt{nn.Embedding}); PatchTST, además, agrupa la serie en parches antes de la atención. Para pronóstico autorregresivo se pasa una
-máscara causal.
-\end{itemize}
-\textbf{Librerías de forecasting.}
-\begin{itemize}
-\item \textbf{StatsForecast / NeuralForecast} (Nixtla): entrada en formato largo con columnas \texttt{unique\_id}, \texttt{ds}, \texttt{y}
-(más columnas exógenas). \texttt{cross\_validation} hace backtesting de origen móvil: \texttt{n\_windows} = número de
-orígenes (cutoffs), \texttt{step\_size} = horas entre un origen y el siguiente (24 en este lab) y \texttt{refit}: si es
-\texttt{True} reajusta el modelo en cada ventana; si es \texttt{False} entrena una sola vez y reutiliza los pesos (en NeuralForecast
-admite también un entero, para reentrenar cada $k$ ventanas). Devuelve \texttt{cutoff}, \texttt{y} y una columna por modelo.
-\item \textbf{Chronos}: \texttt{BaseChronosPipeline.from\_pretrained} (modelos \texttt{chronos-bolt}); \texttt{predict\_quantiles(context,
-prediction\_length, quantile\_levels)} recibe el contexto (tensor 1D/2D o lista de tensores de distinta longitud), el horizonte y los
-cuantiles; devuelve \texttt{(quantiles, mean)} con \texttt{quantiles} de forma $(B,H,|q|)$. Es zero-shot: no se entrena.
-\end{itemize}
-\textbf{Conceptos.}
-\begin{itemize}
-\item \emph{Local vs global}: local = un modelo por serie (se adapta a cada una, pero con pocos datos y costo $\propto N$);
-global = un modelo para todas (comparte patrones y generaliza mejor, requiere normalizar o identificar la serie).
-\item \emph{Teacher forcing}: en entrenamiento el decoder recibe el valor \emph{real} del paso anterior en vez de su propia
-predicción, lo que acelera la convergencia pero crea \emph{exposure bias}: en inferencia usa sus predicciones y los errores se acumulan.
-\item \emph{RevIN}: normaliza cada ventana con su media y desviación (con parámetros afín aprendibles) antes del modelo y
-revierte la normalización a la salida; ayuda ante cambios de nivel (drift) porque la red ve siempre series de escala similar.
-\item \emph{Pinball loss} para el cuantil $\tau$: $\ell_\tau(y,\hat q)=\max\{\tau(y-\hat q),(\tau-1)(y-\hat q)\}$; su minimizador es
-el cuantil $\tau$ de la distribución, y promediar sobre varios $\tau$ aproxima el CRPS.
-\item \emph{MASE vs WAPE}: ambas son libres de escala. MASE divide el MAE entre el MAE del naive estacional en entrenamiento
-de \emph{cada serie}, y luego promedia: pondera igual a todos los clientes y es $<1$ si se supera al naive.
-WAPE $=\sum|e|/\sum|y|$ es un error relativo agregado: los clientes grandes dominan y no usa un baseline; además es robusta a $y\approx0$.
-\end{itemize}
-\endgroup
+\section{Investigación de herramientas}\footnotesize
+\textbf{PyTorch.} \texttt{nn.LSTM/GRU}: \texttt{input\_size}, \texttt{hidden\_size}, \texttt{num\_layers}, \texttt{batch\_first} (entrada $(B,L,F)$), \texttt{dropout} (entre capas; solo si
+\texttt{num\_layers}$>1$). Salidas: \texttt{output} $(B,L,D\!\cdot\!h)$, \texttt{h\_n} y \texttt{c\_n} $(D\!\cdot\!\text{capas},B,h)$ (la GRU no tiene \texttt{c\_n}).
+\texttt{nn.Conv1d} causal: se rellenan $(k-1)d$ ceros solo a la izquierda y \texttt{padding=0}; el campo receptivo de una TCN es $RF=1+\sum_i(k-1)d_i$
+(con $k=3$, $d_i=2^i$, una conv por nivel: $1+2(2^n-1)$; $n=7$ cubre $L=168$, $n=6$ solo 127 h).
+\texttt{nn.TransformerEncoderLayer}: \texttt{d\_model}, \texttt{nhead} (divide a \texttt{d\_model}), \texttt{dim\_feedforward}, \texttt{dropout}; la codificación posicional (seno/coseno o aprendida) se \emph{suma} al embedding
+porque la atención no tiene noción de orden (PatchTST agrupa antes en parches).
+\textbf{Nixtla/Chronos.} NeuralForecast/StatsForecast: formato largo (\texttt{unique\_id, ds, y}); \texttt{cross\_validation}: \texttt{n\_windows} (orígenes), \texttt{step\_size} (horas entre orígenes)
+y \texttt{refit} (reajustar en cada ventana o entrenar una vez). \texttt{BaseChronosPipeline.predict\_quantiles(context, prediction\_length, quantile\_levels)} $\to$ $(B,H,|q|)$, zero-shot.
+\textbf{Conceptos.} \emph{Local vs global}: un modelo por serie (se adapta, pero con pocos datos y costo $\propto N$) o uno para todas (comparte patrones). \emph{Teacher forcing}: el decoder recibe el valor real previo
+en entrenamiento (converge rápido) pero usa su predicción en inferencia (\emph{exposure bias}). \emph{RevIN}: normaliza cada ventana y revierte a la salida; ayuda ante cambios de nivel.
+\emph{Pinball}: $\ell_\tau=\max\{\tau(y-\hat q),(\tau-1)(y-\hat q)\}$, minimizada por el cuantil $\tau$. \emph{MASE vs WAPE}: ambas sin escala; MASE divide por el MAE del naive estacional de cada serie y promedia (iguala a los clientes, $<1$ supera al naive);
+WAPE$=\sum|e|/\sum|y|$ pondera por tamaño y es robusta a $y\approx0$.\normalsize
 
 \section{Protocolo y métricas}
-Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (2014-10-01 a 2014-12-31); cada origen usa
-datos hasta las 23:00 anteriores. Métricas en kWh: MAE, RMSE, WAPE ($\sum|e|/\sum|y|$), MAPE y MASE (escala: MAE del
-naive estacional de 24 h en entrenamiento, por cliente). El MAPE se dispara con consumo cercano a cero (división entre $\approx0$).
+Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (pesos entrenados una vez con datos hasta 2014-09-30). Métricas en kWh: MAE, RMSE, WAPE, MAPE y MASE (escala: MAE del naive de 24 h en entrenamiento, por cliente);
+MAE/RMSE por cliente, por paso $h$ y por hora del día se guardan en \texttt{results/} (\texttt{per\_client\_metrics.csv}). \textbf{MAPE:} solo $\approx1\%$ de las horas de prueba son exactamente 0 (14 clientes) y se excluyen; aun así un
+error relativo individual llega a $785\times$ y el MAPE se mueve de 9.3\% a 8.7\% al descartar $y<10$~kWh, por lo que no se usa para comparar. \textbf{Reentrenamiento mensual} (1-oct, 1-nov, 1-dic, ventana expandible): MLP
+0.8255$\to$0.8268, iTransformer 0.8061$\to$0.8037 y MSTL 0.9115$\to$0.9133 de MASE: \emph{el error prácticamente no cambia} ($\pm0.003$, menos que la varianza por semilla). Nota: MSTL ya se reajustaba en cada origen diario.
+El horizonte $H=168$ no se evaluó (todos los modelos pronostican 24 h).
 
-\textbf{Referencia (seasonal naive 24 h, prueba):} MAE 49.4, RMSE 391.8, WAPE 8.47\%, MAPE 14.97\%, MASE 1.046;
-MAE en la semana 22--28 dic: 100.4 (el doble, por el cambio de régimen navideño).
+\section{Iteraciones de hiperparámetros (solo validación)}
+\begin{table}[!htb]\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\input{../results/iterations_table.tex}
+\caption{Iteraciones seleccionadas (completas en \texttt{results/iterations.csv}); MAE$_v$/MASE$_v$ en validación; ép.=epochs; MB=memoria pico de GPU. Las filas inferiores (NeuralForecast, sin covariables) entrenan por pasos; ``s/ép.'' muestra el tiempo total.}
+\end{table}
+\begin{center}\includegraphics[width=0.95\linewidth]{figs/loss_curves.png}\end{center}
+\textbf{Pérdida y MASE.} Menor pérdida de entrenamiento \emph{no} implica mejor MASE: la LSTM $h$=128 (lr 3e-3) termina con pérdida de entrenamiento 0.210, menor que DLinear (0.217) y que el MLP con normalización por ventana (0.260), pero su MASE$_v$ es peor (0.855 vs. 0.835 y 0.800; el MLP regulariza con dropout y las pérdidas bajo normalizaciones distintas no son estrictamente comparables). \textbf{Hallazgo NeuralForecast:} al pasar el calendario como \texttt{futr\_exog\_list}, NHITS y TCN divergieron (MASE$_v$ 1.66 y 29.5, sin cambiar con lr 3e-3/3e-4 ni recorte de gradiente);
+sin exógenas convergen (0.833 y 0.890), por lo que los modelos de NeuralForecast se reportan sin covariables. Los 4 modelos se entrenaron con $\le1000$ pasos y la validación seguía bajando, por lo que están sub-entrenados.
 
-\section{Modelos, iteraciones y resultados}
-\todo{tabla de iteraciones (L, meses de historia, hiperparámetros, pérdidas, MAE/MASE val, parámetros, tiempos, memoria GPU)
-y curvas de pérdida de $\ge3$ iteraciones}
+\textbf{5.1 Estrategias multi-paso} (LSTM $h=128$, lr 3e-3). MAE de $h=1$--6 $\to$ $h=19$--24: autorregresiva 22.8$\to$40.2 ($+76\%$), multi-salida 24.6$\to$37.0 ($+50\%$), encoder--decoder 25.8$\to$42.1 ($+63\%$).
+La autorregresiva gana en los primeros pasos ($h=1$: 21.2 vs. 26.3) y pierde desde $h\approx10$: sí se observa acumulación de error. El MAE tiene además un pico a $h\approx17$--20 (tarde-noche) por el ciclo diario, así que no crece de forma monótona.
 
-\todo{comparación de estrategias multi-paso del LSTM (autorregresiva, multi-salida, encoder--decoder) y MAE por $h$}
+\section{Resultados en prueba}
+\begin{table}[!htb]\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\input{../results/comparison_table.tex}
+\caption{Prueba (92 orígenes, 100 clientes), ordenada por MASE. MS=multi-salida, AR=autorregresivo; Cov.=usa calendario; $t_{ent}$ y $t_{inf}$ (92 orígenes) en segundos; HW = hardware (GPU GTX 1660 SUPER o CPU). Chronos: solo inferencia, 47.7 M parámetros. Los modelos de NeuralForecast se evaluaron con pesos entrenados con datos hasta 2014-09-30. MASE$_{22\text{-}28}$: semana del 22 al 28 de dic.}
+\end{table}
+\textbf{Probabilístico.} Solo Chronos-Bolt: pinball 9.37 kWh y cobertura P10--P90 de 80.4\% (nominal 80\%, bien calibrado). \textbf{DeepAR no se completó}: falló por memoria (60 GB solicitados en validación) y, con menos pasos,
+no terminó tras $>25$ min en la GPU de 6 GB. Tampoco se evaluó TFT (se usó iTransformer).
+\begin{center}\includegraphics[width=0.44\linewidth]{figs/pareto.png}\hfill\includegraphics[width=0.54\linewidth]{figs/mae_horizon.png}\end{center}
+\begin{center}\includegraphics[width=0.44\linewidth]{figs/months.png}\hfill\includegraphics[width=0.44\linewidth]{figs/local_global.png}\end{center}
+\captionof{figure}{Arriba: MASE de prueba vs. tiempo de entrenamiento (escala log; líneas: Chronos y SNaive24) y MAE por paso del horizonte. Abajo: MASE de validación vs. meses de historia (líneas punteadas: SNaive168 y Chronos) y MASE local vs. global por cliente (kWh medio entre paréntesis).}
 
-\todo{tabla comparativa ordenada por MASE: familia, L, estrategia, covariables, parámetros, tiempos, hardware,
-MAE/RMSE/WAPE/MASE (H=24, H=168), MASE 22--28 dic, pinball y cobertura P10--P90}
+\textbf{5.3 Local vs global} (MLP, 10 clientes, semilla fija): MASE global \textbf{0.852} vs. local \textbf{0.808} (MAE 23.5 vs. 21.9 kWh). El local gana en 8 de 10; el global solo en MT\_168 y MT\_280 (clientes pequeños, 135 y 285~kWh medios) y por poco.
+Los 5 clientes $\ge500$~kWh mejoran con el modelo local (p. ej. MT\_101: 0.763$\to$0.632). Costo: 10 modelos locales 177 s vs. 32 s del global. \textbf{Semillas} (3): MLP $0.823\pm0.002$; iTransformer $0.812\pm0.016$ (0.806, 0.831, 0.800).
 
-\todo{3 gráficas: MASE vs tiempo de entrenamiento (Pareto), MAE por paso del horizonte, MASE vs meses de historia}
-
-\todo{local vs global (10 clientes)}
-
+\begin{center}\includegraphics[width=0.95\linewidth]{figs/hour_xmas.png}\end{center}
+\captionof{figure}{MAE por hora del día de ocho modelos representativos (el pico de error está en la tarde-noche) y MASE de toda la prueba contra el de la semana 22--28 de diciembre para los 15 modelos.}
 \section{Discusión y conclusiones}
-\todo{responder las 8 preguntas de la sección 8 del enunciado y desviación estándar del MASE con 3 semillas}
+\textbf{Ganador.} Chronos-Bolt zero-shot (MASE 0.760; MAE 28.1) superó al seasonal naive 24 h (1.043; MAE 39.1) en un 27\%, sin entrenar; el mejor modelo entrenado (iTransformer, 0.806) lo supera en 23\%, y el MLP (0.826, 32 s, 158 k parámetros) en 21\%.
+Sí se justifica pasar del naive a un modelo: el MLP cuesta segundos y el reentrenamiento mensual no aportó, por lo que el mantenimiento es bajo. En la frontera de Pareto quedan Chronos, NLinear, MLP e iTransformer; NHITS (383 s) y las LSTM (290--425 s) quedan dominadas.
 
-\bigskip
-\noindent\textbf{Repositorio:} \todo{enlace al repositorio Git}
+
+\textbf{Ruido.} Con $\pm0.016$ de desviación entre semillas en iTransformer, las diferencias entre los 5 mejores entrenados (0.806--0.853) no son concluyentes; solo Chronos y la brecha con los baselines lo son.
+
+
+\textbf{DLinear.} Se replica parcialmente: DLinear (0.855) supera a PatchTST (0.878), a LightGBM (0.867) y a la LSTM, con menor error que PatchTST en $h$=1--6 y 19--24 (24.6 vs. 24.8 y 36.3 vs. 37.2), pero no a iTransformer, NHITS ni Chronos (35.0 y 32.9 en el mismo tramo).
+
+
+\textbf{Estrategia multi-paso.} La multi-salida fue la mejor y más estable en $h$ largos; la autorregresiva solo gana a $h\le9$. El error crece $\approx50$--$76\%$ del tramo $h$=1--6 al 19--24 en todas las familias, también en Chronos ($+60\%$).
+
+
+\textbf{Ventana, normalización e historia} (validación). $L$: DLinear 0.905 ($L$=48) vs. 0.835 (168/336); MLP 0.816$\to$0.803 y NLinear 0.835$\to$0.817 con $L$=336; la LSTM no cambia. Normalización por ventana: MLP 0.816$\to$0.800, LSTM 0.989$\to$0.957, DLinear sin efecto.
+Historia (3/12/30 meses): DLinear 0.826/0.845/0.835 (3 meses basta), LightGBM 0.912/0.887/0.882, LSTM 1.282/1.004/0.989; el SNaive168 vale 1.156 y Chronos 0.763. DLinear supera a LightGBM desde 3 meses; la LSTM supera a los estadísticos desde 12 meses y nunca a LightGBM. \PTMONTHS
+
+
+\textbf{Local vs global.} No convino el global en nuestros datos (0.852 vs. 0.808): con un MLP de 158 k parámetros y 100 clientes heterogéneos, la capacidad compartida parece limitar a los clientes grandes; solo dos pequeños se benefician del global. Es un experimento de 10 clientes y una semilla.
+
+
+\textbf{Chronos.} Quedó \emph{por delante} de todos los modelos entrenados (0.760 vs. 0.806). Lo usaríamos al arrancar un cliente nuevo, sin infraestructura de entrenamiento o como baseline; entrenar tendría sentido para usar calendario/covariables, modelar cuantiles propios o ajustar a un cliente.
+
+
+\textbf{Navidad/Año Nuevo.} El MASE de 22--28 dic sube de $\approx$0.8 a 1.36--2.2 en \emph{todos} los modelos (SNaive24 2.20, DLinear/NLinear 1.80, MLP 1.47, LSTM MS 1.38, Chronos 1.36): hubo un cambio de régimen general. Los modelos con calendario (MLP, LSTM, LightGBM) no superan sistemáticamente a los que no lo usan (Chronos, iTransformer, NHITS), y el feriado marca solo el día 25 mientras la caída dura varios días.
+
+
+\textbf{Limitaciones.} 100 clientes, 1000 pasos en los modelos de NeuralForecast (sin calendario, comparación no homogénea con los propios), DeepAR no completado y una sola partición de prueba.
+
+\medskip
+\noindent\textbf{Repositorio:} \url{https://github.com/AngelEsquit/Lab9-DL}
 \end{document}

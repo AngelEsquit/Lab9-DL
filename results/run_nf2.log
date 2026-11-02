@@ -1,0 +1,21 @@
+W1101 12:47:41.438000 18844 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+===== nhits_L168
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 249/-2 ----------------- 4/4 0:00:05 • 0:00:00 0.81it/s train_loss_step: 
+                                                              0.330            
+                                                              train_loss_epoch:
+                                                              0.373 valid_loss:
+                                                              53.333           
+Traceback (most recent call last):
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_nf.py", line 73, in <module>
+    out = cv(nf, df_for(months, VAL_END), VAL_SIZE)           # validacion: ventanas diarias jul-sep
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_nf.py", line 55, in cv
+    return nf.cross_validation(d, test_size=test_size, step_size=24, val_size=VAL_SIZE, refit=False, use_fitted=True)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\core.py", line 2543, in cross_validation
+    raise Exception("you must define `n_windows` or `test_size` but not both")
+Exception: you must define `n_windows` or `test_size` but not both

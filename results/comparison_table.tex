@@ -1,0 +1,21 @@
+\begin{tabular}{@{}lllrrrrrrrrrr@{}}
+\toprule
+Modelo & $L$ & Estrategia & Cov. & Params & $t_{ent}$ (s) & $t_{inf}$ (s) & HW & MAE & RMSE & WAPE & MASE & MASE$_{22-28}$ \\ \midrule
+Chronos-Bolt & 512 & directa & no & 47\,718\,016 & 0 & 6.7 & GPU & 28.1 & 89.3 & 0.059 & 0.760 & 1.36 \\
+iTransformer & 168 & multi-salida & no & 289\,944 & 71 & 5.4 & GPU & 29.9 & 90.6 & 0.062 & 0.806 & 1.39 \\
+NHITS & 168 & multi-salida & no & 815\,379 & 383 & 6.2 & GPU & 30.0 & 94.5 & 0.062 & 0.811 & 1.45 \\
+MLP & 168 & multi-salida & si & 158\,232 & 32 & 0.1 & GPU & 30.5 & 92.7 & 0.064 & 0.826 & 1.47 \\
+TCN & 168 & multi-salida & no & 74\,521 & 94 & 7.5 & GPU & 31.3 & 98.5 & 0.065 & 0.849 & 1.60 \\
+NLinear & 336 & multi-salida & no & 8\,088 & 21 & 0.1 & GPU & 32.0 & 99.9 & 0.067 & 0.853 & 1.80 \\
+DLinear & 336 & multi-salida & no & 16\,176 & 27 & 0.1 & GPU & 32.1 & 99.9 & 0.067 & 0.855 & 1.80 \\
+LSTM (AR) & 168 & autorregresiva & si & 70\,785 & 425 & 1.2 & GPU & 32.7 & 101.9 & 0.068 & 0.857 & 1.46 \\
+LSTM (MS) & 168 & multi-salida & si & 77\,784 & 289 & 0.3 & GPU & 31.8 & 96.8 & 0.066 & 0.858 & 1.38 \\
+LightGBM & 168 & recursiva & si & 1\,497 & 99 & 5.3 & CPU & 32.5 & 105.6 & 0.068 & 0.867 & 1.59 \\
+PatchTST & 168 & multi-salida & no & 466\,843 & 115 & 8.5 & GPU & 32.8 & 99.6 & 0.068 & 0.878 & 1.59 \\
+MSTL & 1344 & directa & no & 0 & 0 & 603.2 & CPU & 35.2 & 109.2 & 0.073 & 0.912 & 1.92 \\
+Seq2seq LSTM & 168 & encoder-decoder & si & 141\,441 & 360 & 1.2 & GPU & 35.2 & 104.0 & 0.073 & 0.917 & 1.38 \\
+SNaive24 & 24 & directa & no & 0 & 0 & 0.0 & CPU & 39.1 & 129.3 & 0.082 & 1.043 & 2.20 \\
+SNaive168 & 168 & directa & no & 0 & 0 & 0.0 & CPU & 39.6 & 124.6 & 0.083 & 1.081 & 1.60 \\
+Naive & 1 & directa & no & 0 & 0 & 0.0 & CPU & 152.3 & 376.0 & 0.318 & 4.091 & 4.08 \\
+\bottomrule
+\end{tabular}

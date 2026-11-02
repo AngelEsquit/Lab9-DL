@@ -1,0 +1,42 @@
+===== lstm_h128_lr3e-3 {'model': 'lstm', 'L': 168, 'hidden': 128, 'layers': 1, 'dropout': 0.1, 'lr': 0.003}
+[W1101 10:35:01.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 7446986752 bytes (free: 4225761280, total: 6442123264).
+[W1101 10:35:02.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 7446986752 bytes (free: 4701814784, total: 6442123264).
+Traceback (most recent call last):
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_own.py", line 50, in <module>
+    net, info = fit(P, cfg)
+                ~~~^^^^^^^^
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 367, in fit
+    rec.update(val_metrics(net, panel, ds_va))
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 326, in val_metrics
+    p = net(past, fut)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 302, in forward
+    return self.core(p, fut) * s + m
+           ~~~~~~~~~^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 222, in forward
+    out, _ = self.rnn(past)
+             ~~~~~~~~^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\rnn.py", line 1164, in forward
+    result = _VF.lstm(
+        input,
+    ...<7 lines>...
+        self.batch_first,
+    )
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 6.94 GiB. GPU 0 has a total capacity of 6.00 GiB of which 4.38 GiB is free. Of the allocated memory 429.49 MiB is allocated by PyTorch, and 190.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

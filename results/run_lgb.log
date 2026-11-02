@@ -1,0 +1,7 @@
+lgb_base {'params': {}, 'val_mase': np.float64(0.8822552558656386), 'best_iter': 1500, 'train_time': 92.84160828590393}
+lgb_leaves15 {'params': {'num_leaves': 15}, 'val_mase': np.float64(0.8996527428678236), 'best_iter': 1500, 'train_time': 78.02654719352722}
+lgb_lr0.1_leaves127 {'params': {'learning_rate': 0.1, 'num_leaves': 127}, 'val_mase': np.float64(0.8675972624242657), 'best_iter': 1497, 'train_time': 98.96057438850403}
+lgb_m3 {'months': 3, 'val_mase': np.float64(0.9122549094364102), 'best_iter': 1500, 'train_time': 13.919312715530396}
+lgb_m12 {'months': 12, 'val_mase': np.float64(0.8873004412464691), 'best_iter': 1500, 'train_time': 37.91162824630737}
+lgb_m30 {'months': 30, 'val_mase': np.float64(0.8822552558656386), 'best_iter': 1500, 'train_time': 93.47931027412415}
+LightGBM {'MAE': 32.5158, 'RMSE': 105.6054, 'WAPE': 0.0678, 'MASE': 0.8667, 'MASE_xmas': np.float64(1.5944)}

@@ -305,13 +305,7 @@ by_h, by_hour, xmas = breakdown(bt)
 print("MAE semana 22-28 dic:", (xmas.y_hat - xmas.y).abs().mean())
 """)
 
-md("""
-## Pendiente (siguientes etapas)
-- Sección 3 del PDF: investigación (LSTM/GRU, Conv1d causal, Transformer, Nixtla, Chronos, conceptos).
-- Sección 5: baselines (StatsForecast), LightGBM, MLP/DLinear/NLinear, LSTM/GRU, seq2seq, N-HiTS/TCN, PatchTST, DeepAR, Chronos-Bolt.
-- 5.1 Estrategias multi-paso, 5.2 iteraciones de hiperparámetros, 5.3 local vs global.
-- 6. Tabla comparativa y gráficas · 8. Discusión.
-""")
+exec(open(Path(__file__).parent / "_models_cells.py", encoding="utf-8").read())
 
 nb["cells"] = cells
 nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}

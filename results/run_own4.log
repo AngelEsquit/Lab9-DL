@@ -1,0 +1,14 @@
+===== seq2seq_h128_lr3e-3 {'model': 'seq2seq', 'L': 168, 'hidden': 128, 'layers': 1, 'dropout': 0.1, 'lr': 0.003, 'epochs': 12, 'spe': 500}
+{'epoch': 1, 'train_loss': 0.2927, 'epoch_time': 24.312, 'val_loss': 0.3052, 'val_mae': 47.6881, 'val_mase': 1.2363}
+{'epoch': 2, 'train_loss': 0.2227, 'epoch_time': 24.0589, 'val_loss': 0.2773, 'val_mae': 42.8038, 'val_mase': 1.1241}
+{'epoch': 3, 'train_loss': 0.2111, 'epoch_time': 24.1336, 'val_loss': 0.2682, 'val_mae': 41.6966, 'val_mase': 1.0789}
+{'epoch': 4, 'train_loss': 0.204, 'epoch_time': 24.2125, 'val_loss': 0.2576, 'val_mae': 40.1172, 'val_mase': 1.0425}
+{'epoch': 5, 'train_loss': 0.1985, 'epoch_time': 24.2403, 'val_loss': 0.2524, 'val_mae': 39.1255, 'val_mase': 1.0226}
+{'epoch': 6, 'train_loss': 0.1944, 'epoch_time': 24.2466, 'val_loss': 0.2458, 'val_mae': 38.3398, 'val_mase': 0.9878}
+{'epoch': 7, 'train_loss': 0.1905, 'epoch_time': 24.2127, 'val_loss': 0.2436, 'val_mae': 37.933, 'val_mase': 0.9889}
+{'epoch': 8, 'train_loss': 0.1876, 'epoch_time': 24.2154, 'val_loss': 0.2389, 'val_mae': 37.2957, 'val_mase': 0.9671}
+{'epoch': 9, 'train_loss': 0.1841, 'epoch_time': 24.237, 'val_loss': 0.237, 'val_mae': 37.0216, 'val_mase': 0.9599}
+{'epoch': 10, 'train_loss': 0.1832, 'epoch_time': 24.2401, 'val_loss': 0.2317, 'val_mae': 36.0112, 'val_mase': 0.9357}
+{'epoch': 11, 'train_loss': 0.181, 'epoch_time': 24.2109, 'val_loss': 0.2302, 'val_mae': 35.8888, 'val_mase': 0.9323}
+{'epoch': 12, 'train_loss': 0.1804, 'epoch_time': 24.2356, 'val_loss': 0.2292, 'val_mae': 35.7855, 'val_mase': 0.9276}
+-> seq2seq_h128_lr3e-3: val_mase=0.9276 ep=12 t=360s

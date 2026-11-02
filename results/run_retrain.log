@@ -1,0 +1,82 @@
+mlp 2014-10-01 train_time 31s ventanas 2390500
+mlp 2014-11-01 train_time 31s ventanas 2464900
+mlp 2014-12-01 train_time 31s ventanas 2536900
+MLP mensual: MAE 30.679 MASE 0.8268 | pesos fijos: MAE 30.522 MASE 0.8255
+W1101 19:02:13.232000 580 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.279            
+                                                              train_loss_epoch:
+                                                              0.279 valid_loss:
+                                                              30.881           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.267            
+                                                              train_loss_epoch:
+                                                              0.267 valid_loss:
+                                                              30.305           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itransformer 2014-10-01 train_time 144s
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.253            
+                                                              train_loss_epoch:
+                                                              0.253 valid_loss:
+                                                              30.593           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.247            
+                                                              train_loss_epoch:
+                                                              0.247 valid_loss:
+                                                              29.977           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itransformer 2014-11-01 train_time 147s
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.263            
+                                                              train_loss_epoch:
+                                                              0.263 valid_loss:
+                                                              28.795           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.255            
+                                                              train_loss_epoch:
+                                                              0.255 valid_loss:
+                                                              28.203           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itransformer 2014-12-01 train_time 150s
+iTransformer mensual: MAE 29.701 MASE 0.8037 | pesos fijos: MAE 29.870 MASE 0.8061
+mstl 2014-10-01 550s
+mstl 2014-11-01 535s
+mstl 2014-12-01 551s
+MSTL mensual: MAE 35.183 MASE 0.9133 | pesos fijos: MAE 35.163 MASE 0.9115

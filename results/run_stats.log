@@ -1,0 +1,310 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=1656)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 6, in <module>
+    from statsforecast.models import Naive, SeasonalNaive, MSTL, AutoETS
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsforecast\models.py", line 65, in <module>
+    from statsforecast.arima import (
+    ...<6 lines>...
+    )
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsforecast\arima.py", line 22, in <module>
+    import statsmodels.api as sm
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\api.py", line 129, in <module>
+    from .graphics import api as graphics
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\graphics\api.py", line 1, in <module>
+    from . import tsaplots as tsa
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\graphics\tsaplots.py", line 11, in <module>
+    from statsmodels.tsa.stattools import acf, ccf, pacf, pccf
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\tsa\stattools\__init__.py", line 2, in <module>
+    from ._leybourne import leybourne
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\tsa\stattools\_leybourne.py", line 7, in <module>
+    from statsmodels.tsa.stattools._stattools import lagmat, pacf
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\statsmodels\tsa\stattools\_stattools.py", line 16, in <module>
+    from scipy.signal import correlate
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\signal\__init__.py", line 307, in <module>
+    from ._support_alternative_backends import *
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\signal\_support_alternative_backends.py", line 7, in <module>
+    from ._signal_api import *   # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\signal\_signal_api.py", line 16, in <module>
+    from ._spline_filters import *         # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\scipy\signal\_spline_filters.py", line 14, in <module>
+    from ._signaltools import lfilter, sosfilt, lfiltic
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1119, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1219, in get_data
+MemoryError
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=520)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 8, in <module>
+    df = load_panel(100); P = Panel(df); COLS = list(df.columns)
+                              ~~~~~^^^^
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 46, in __init__
+    self.mu_np, self.sd_np = tr.mean().values, tr.std().replace(0, 1.0).values
+                                               ~~~~~~^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11775, in std
+    result = super().std(axis, skipna, ddof, numeric_only, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12423, in std
+    return self._stat_function_ddof(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "std", nanops.nanstd, axis, skipna, ddof, numeric_only, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12387, in _stat_function_ddof
+    return self._reduce(
+           ~~~~~~~~~~~~^
+        func, name, axis=axis, numeric_only=numeric_only, skipna=skipna, ddof=ddof
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11589, in _reduce
+    res = df._mgr.reduce(blk_func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1519, in reduce
+    nbs = blk.reduce(func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 406, in reduce
+    result = func(self.values)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11508, in blk_func
+    return op(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 950, in nanstd
+    result = np.sqrt(nanvar(values, axis=axis, skipna=skipna, ddof=ddof, mask=mask))
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 85, in _f
+    return f(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 1016, in nanvar
+    sqr = _ensure_numeric((avg - values) ** 2)
+                           ~~~~^~~~~~~~
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 16.7 MiB for an array with shape (100, 21888) and data type float64
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=508)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 8, in <module>
+    df = load_panel(100); P = Panel(df); COLS = list(df.columns)
+                              ~~~~~^^^^
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 50, in __init__
+    self.Z = (self.kwh - self.mu) / self.sd
+             ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+For more detailed error information, run with CUDA_LOG_FILE=stderr
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=1704)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 8, in <module>
+    df = load_panel(100); P = Panel(df); COLS = list(df.columns)
+                              ~~~~~^^^^
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 46, in __init__
+    self.mu_np, self.sd_np = tr.mean().values, tr.std().replace(0, 1.0).values
+                                               ~~~~~~^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11775, in std
+    result = super().std(axis, skipna, ddof, numeric_only, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12423, in std
+    return self._stat_function_ddof(
+           ~~~~~~~~~~~~~~~~~~~~~~~~^
+        "std", nanops.nanstd, axis, skipna, ddof, numeric_only, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12387, in _stat_function_ddof
+    return self._reduce(
+           ~~~~~~~~~~~~^
+        func, name, axis=axis, numeric_only=numeric_only, skipna=skipna, ddof=ddof
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11589, in _reduce
+    res = df._mgr.reduce(blk_func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1519, in reduce
+    nbs = blk.reduce(func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 406, in reduce
+    result = func(self.values)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11508, in blk_func
+    return op(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 950, in nanstd
+    result = np.sqrt(nanvar(values, axis=axis, skipna=skipna, ddof=ddof, mask=mask))
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 85, in _f
+    return f(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 1016, in nanvar
+    sqr = _ensure_numeric((avg - values) ** 2)
+                          ~~~~~~~~~~~~~~~^^~~
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 16.7 MiB for an array with shape (100, 21888) and data type float64
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=864)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 8, in <module>
+    df = load_panel(100); P = Panel(df); COLS = list(df.columns)
+                              ~~~~~^^^^
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\lab9.py", line 47, in __init__
+    self.mase_scale_np = tr.diff(24).abs().mean().values                         # MAE naive estacional (train)
+                         ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11720, in mean
+    result = super().mean(axis, skipna, numeric_only, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12485, in mean
+    return self._stat_function(
+           ~~~~~~~~~~~~~~~~~~~^
+        "mean", nanops.nanmean, axis, skipna, numeric_only, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 12442, in _stat_function
+    return self._reduce(
+           ~~~~~~~~~~~~^
+        func, name=name, axis=axis, skipna=skipna, numeric_only=numeric_only
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11589, in _reduce
+    res = df._mgr.reduce(blk_func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 1519, in reduce
+    nbs = blk.reduce(func)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\blocks.py", line 406, in reduce
+    result = func(self.values)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 11508, in blk_func
+    return op(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 705, in nanmean
+    values, mask = _get_values(values, skipna, fill_value=0, mask=mask)
+                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\nanops.py", line 315, in _get_values
+    values = values.copy()
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 16.7 MiB for an array with shape (100, 21888) and data type float64
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=316, pipe_handle=1156)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                                  run_name="__mp_main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_baselines.py", line 10, in <module>
+    Y = df.reset_index(names="ds").melt(id_vars="ds", var_name="unique_id", value_name="y").sort_values(["unique_id", "ds"])
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 7205, in sort_values
+    indexer = lexsort_indexer(
+        keys, orders=ascending, na_position=na_position, key=key
+    )
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\sorting.py", line 351, in lexsort_indexer
+    cat = Categorical(k, ordered=True)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\arrays\categorical.py", line 428, in __init__
+    values = sanitize_array(values, None)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\construction.py", line 604, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\dtypes\cast.py", line 1200, in maybe_infer_to_datetimelike
+    return lib.maybe_convert_objects(  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        value,
+        ^^^^^^
+    ...<5 lines>...
+        dtype_if_all_nat=np.dtype("M8[ns]"),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "pandas/_libs/lib.pyx", line 2556, in pandas._libs.lib.maybe_convert_objects
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 40.1 MiB for an array with shape (2630400,) and data type complex128
+Naive {'MAE': 152.2621, 'RMSE': 376.0086, 'WAPE': 0.3176, 'MASE': 4.091, 'MASE_xmas': np.float64(4.0788)}
+SNaive24 {'MAE': 39.1204, 'RMSE': 129.2976, 'WAPE': 0.0816, 'MASE': 1.043, 'MASE_xmas': np.float64(2.198)}
+SNaive168 {'MAE': 39.5575, 'RMSE': 124.6184, 'WAPE': 0.0825, 'MASE': 1.0813, 'MASE_xmas': np.float64(1.5992)}
+MSTL {'MAE': 35.1632, 'RMSE': 109.1582, 'WAPE': 0.0734, 'MASE': 0.9115, 'MASE_xmas': np.float64(1.9203)}
+tiempo total cross_validation StatsForecast: 603.2352735996246

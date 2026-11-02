@@ -1,0 +1,3 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/143 [00:00<?, ?it/s]Loading weights:  42%|####1     | 60/143 [00:00<00:00, 586.63it/s]Loading weights:  83%|########3 | 119/143 [00:00<00:00, 527.03it/s]Loading weights: 100%|##########| 143/143 [00:00<00:00, 533.29it/s]
+{'MAE': 28.0917, 'RMSE': 89.3048, 'WAPE': 0.0586, 'MAPE': 0.0844, 'MASE': 0.7596, 'MASE_xmas': np.float64(1.356), 'MAE_xmas': np.float64(51.0006), 'coverage_p10_p90': 0.8037, 'pinball': 9.3707, 'train_time': 0.0, 'infer_time': 6.6892, 'gpu_peak_mb': 319.0825}

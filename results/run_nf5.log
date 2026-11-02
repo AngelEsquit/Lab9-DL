@@ -1,0 +1,126 @@
+W1101 17:03:33.475000 21152 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+===== itransformer_L168
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+`Trainer.fit` stopped: `max_steps=1000` reached.
+Epoch 999/-2 ----------------- 1/1 0:00:00 • 0:00:00 0.00it/s train_loss_step: 
+                                                              0.279            
+                                                              train_loss_epoch:
+                                                              0.279 valid_loss:
+                                                              30.881           
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Predicting ----------------------------------- 1/1 0:00:00 • 0:00:00 0.00it/s 
+itransformer_L168 {'kind': 'itransformer', 'L': 168, 'months': None, 'val_mase': np.float64(0.8047702157405552), 'val_mae': np.float64(30.92602521212395), 'params_total': 289944, 'params_trainable': 289944, 'train_time': 70.90983414649963, 'gpu_peak_mb': 272.77685546875, 'steps': 0}
+===== deepar_L168_noex
+Seed set to 1
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[W1101 17:04:52.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 63877152768 bytes (free: 777986048, total: 6442123264).
+[W1101 17:04:54.000000000 CUDACachingAllocator.cpp:3933] memory allocation failed with OOM on device 0 while trying to allocate 63877152768 bytes (free: 800792576, total: 6442123264).
+
+Traceback (most recent call last):
+  File "C:\Users\aeh55\Documents\Angel Esteban\Universidad\Semestre 8\Deep Learning\Lab9-DL\src\run_nf.py", line 76, in <module>
+    nf.fit(df_for(months, VAL_END), val_size=VAL_SIZE)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\core.py", line 1069, in fit
+    self.models[i] = model.fit(
+                     ~~~~~~~~~^
+        self.dataset, val_size=val_size, distributed_config=distributed_config
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\common\_base_model.py", line 2609, in fit
+    return self._fit(
+           ~~~~~~~~~^
+        dataset=dataset,
+        ^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        distributed_config=distributed_config,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\common\_base_model.py", line 1007, in _fit
+    trainer.fit(model, datamodule=datamodule)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 584, in fit
+    call._call_and_handle_interrupt(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<6 lines>...
+        weights_only,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\call.py", line 49, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 630, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path, weights_only=weights_only)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1079, in _run
+    results = self._run_stage()
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1121, in _run_stage
+    self._run_sanity_check()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1150, in _run_sanity_check
+    val_loop.run()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\loops\utilities.py", line 179, in _decorator
+    return loop_run(self, *args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\loops\evaluation_loop.py", line 146, in run
+    self._evaluation_step(batch, batch_idx, dataloader_idx, dataloader_iter)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\loops\evaluation_loop.py", line 441, in _evaluation_step
+    output = call._call_strategy_hook(trainer, hook_name, *step_args)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\trainer\call.py", line 329, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytorch_lightning\strategies\strategy.py", line 412, in validation_step
+    return self.lightning_module.validation_step(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\common\_base_model.py", line 2517, in validation_step
+    output_batch = self._validate_step_recurrent_batch(
+        insample_y=insample_y,
+    ...<4 lines>...
+        y_idx=y_idx,
+    )
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\common\_base_model.py", line 1700, in _validate_step_recurrent_batch
+    y_hat[:, tau], insample_y = self._validate_step_recurrent_single(
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        insample_y=insample_y[:, : self.input_size + tau],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        y_idx=y_idx,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\common\_base_model.py", line 1747, in _validate_step_recurrent_single
+    output_batch_unmapped = self(windows_batch)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\neuralforecast\models\deepar.py", line 243, in forward
+    hidden_state, rnn_state = self.hist_encoder(
+                              ~~~~~~~~~~~~~~~~~^
+        encoder_input, rnn_state
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # [B, input_size-1, rnn_hidden_state]
+    ^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\aeh55\AppData\Local\Programs\Python\Python313\Lib\site-packages\torch\nn\modules\rnn.py", line 1164, in forward
+    result = _VF.lstm(
+        input,
+    ...<7 lines>...
+        self.batch_first,
+    )
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 59.49 GiB. GPU 0 has a total capacity of 6.00 GiB of which 763.70 MiB is free. Of the allocated memory 4.08 GiB is allocated by PyTorch, and 80.81 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
