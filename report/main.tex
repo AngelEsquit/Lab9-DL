@@ -63,7 +63,7 @@ WAPE$=\sum|e|/\sum|y|$ pondera por tamaño y es robusta a $y\approx0$.\normalsiz
 Una sola función \texttt{backtest(modelo)}: 92 orígenes diarios a las 00:00 (pesos entrenados una vez con datos hasta 2014-09-30). Métricas en kWh: MAE, RMSE, WAPE, MAPE y MASE (escala: MAE del naive de 24 h en entrenamiento, por cliente);
 MAE/RMSE por cliente, por paso $h$ y por hora del día se guardan en \texttt{results/} (\texttt{per\_client\_metrics.csv}). \textbf{MAPE:} solo $\approx1\%$ de las horas de prueba son exactamente 0 (14 clientes) y se excluyen; aun así un
 error relativo individual llega a $785\times$ y el MAPE se mueve de 9.3\% a 8.7\% al descartar $y<10$~kWh, por lo que no se usa para comparar. \textbf{Reentrenamiento mensual} (1-oct, 1-nov, 1-dic, ventana expandible): MLP
-0.8255$\to$0.8268, iTransformer 0.8147$\to$0.8037 y MSTL 0.9115$\to$0.9133 de MASE: \emph{el error prácticamente no cambia} ($\pm0.003$, menos que la varianza por semilla). Nota: MSTL ya se reajustaba en cada origen diario.
+0.8255$\to$0.8268, iTransformer 0.8147$\to$0.8037 y MSTL 0.9115$\to$0.9133 de MASE: \emph{el error casi no cambia} (cambios de $+0.001$, $-0.011$ y $+0.002$; el de iTransformer queda dentro de su desviación entre semillas, 0.016). Nota: MSTL ya se reajustaba en cada origen diario.
 El horizonte $H=168$ no se evaluó (todos los modelos pronostican 24 h).
 
 \section{Iteraciones de hiperparámetros (solo validación)}
@@ -90,13 +90,13 @@ MASE 0.836, pinball 10.55 kWh y cobertura 74.5\% (algo sobreconfiado). \texttt{N
 \captionof{figure}{Arriba: MASE de prueba vs. tiempo de entrenamiento (escala log; líneas: Chronos y SNaive24) y MAE por paso del horizonte. Abajo: MASE de validación vs. meses de historia (líneas punteadas: SNaive168 y Chronos) y MASE local vs. global por cliente (kWh medio entre paréntesis).}
 
 \textbf{5.3 Local vs global} (MLP, 10 clientes, semilla fija): MASE global \textbf{0.852} vs. local \textbf{0.808} (MAE 23.5 vs. 21.9 kWh). El local gana en 8 de 10; el global solo en MT\_168 y MT\_280 (clientes pequeños, 135 y 285~kWh medios) y por poco.
-Los 5 clientes $\ge500$~kWh mejoran con el modelo local (p. ej. MT\_101: 0.763$\to$0.632). Costo: 10 modelos locales 177 s vs. 32 s del global. \textbf{Semillas} (3): MLP $0.823\pm0.002$; iTransformer $0.812\pm0.016$ (0.806, 0.831, 0.800, reajustando dentro de \texttt{cross\_validation}; la tabla muestra 0.815 con el checkpoint de 1000 pasos).
+Los 5 clientes $\ge500$~kWh mejoran con el modelo local (p. ej. MT\_101: 0.763$\to$0.632). Costo: 10 modelos locales 177 s vs. 32 s del global. \textbf{Semillas} (3): MLP 0.823 $\pm$ 0.002; iTransformer 0.812 $\pm$ 0.016 (0.806, 0.831, 0.800, reajustando dentro de \texttt{cross\_validation}; la tabla muestra 0.815 con el checkpoint de 1000 pasos).
 
 \begin{center}\includegraphics[width=0.95\linewidth]{figs/hour_xmas.png}\end{center}
 \captionof{figure}{MAE por hora del día de ocho modelos representativos (el pico de error está en la tarde-noche) y MASE de toda la prueba contra el de la semana 22--28 de diciembre para los 16 modelos (sin Naive).}
 \section{Discusión y conclusiones}
 \textbf{Ganador.} Chronos-Bolt zero-shot (MASE 0.760; MAE 28.1) superó al seasonal naive 24 h (1.043; MAE 39.1) en un 27\%, sin entrenar; el mejor modelo entrenado (NHITS, 0.804, pero 2079 s de entrenamiento) lo supera en 23\%, iTransformer (0.815, 71 s) en 22\% y el MLP (0.826, 32 s, 158 k parámetros) en 21\%.
-Sí se justifica pasar del naive a un modelo: el MLP cuesta segundos y el reentrenamiento mensual no aportó, por lo que el mantenimiento es bajo; NHITS gana solo 0.02 de MASE sobre iTransformer a 30 veces el costo. En la frontera de Pareto quedan Chronos, NLinear, MLP, iTransformer y NHITS; DeepAR, TCN y las LSTM quedan dominadas.
+Sí se justifica pasar del naive a un modelo: el MLP cuesta segundos y el reentrenamiento mensual no aportó, por lo que el mantenimiento es bajo; NHITS gana solo 0.011 de MASE sobre iTransformer a 30 veces el costo. En la frontera de Pareto quedan Chronos, NLinear, MLP, iTransformer y NHITS; DeepAR, TCN y las LSTM quedan dominadas.
 
 
 \textbf{Ruido.} Con $\pm0.016$ de desviación entre semillas en iTransformer, las diferencias entre los 6 mejores entrenados (0.804--0.853) no son concluyentes; solo Chronos y la brecha con los baselines lo son.

@@ -10,6 +10,11 @@ resultados (`results/*.json`) se cargan aquí.
 code('''
 import sys, json, inspect
 sys.path.insert(0, "../src" if os.path.basename(os.getcwd()) == "notebooks" else "src")
+# Subconjunto de 100 clientes (misma logica que src/prep_data.py: semilla 42, ordenado). Se crea si no existe (data/ no se versiona).
+PK100 = os.path.join(DATA_DIR, "panel_100.pkl")
+if not os.path.exists(PK100):
+    c100 = sorted(np.random.default_rng(42).choice(panel.columns, size=100, replace=False))
+    panel[c100].to_pickle(PK100)
 import lab9
 from lab9 import *
 RES_DIR = lab9.RES
